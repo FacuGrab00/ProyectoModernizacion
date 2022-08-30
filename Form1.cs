@@ -113,5 +113,10 @@ namespace ProyectoModernizacion
             excelCopia.SaveAs(savePath);
             MessageBox.Show("Se guardó con exito!");
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
