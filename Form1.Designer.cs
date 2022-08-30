@@ -55,7 +55,7 @@ namespace ProyectoModernizacion
             // 
             this.dgvExcel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExcel.Location = new System.Drawing.Point(50, 39);
+            this.dgvExcel.Location = new System.Drawing.Point(96, 43);
             this.dgvExcel.Name = "dgvExcel";
             this.dgvExcel.RowHeadersWidth = 51;
             this.dgvExcel.RowTemplate.Height = 29;
