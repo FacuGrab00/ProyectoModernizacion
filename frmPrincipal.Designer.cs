@@ -1,7 +1,7 @@
 ﻿
 namespace ProyectoModernizacion
 {
-    partial class Form1
+    partial class frmPrincipal
     {
         /// <summary>
         ///  Required designer variable.
@@ -47,7 +47,9 @@ namespace ProyectoModernizacion
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileName = "Archivo Excel";
+            this.openFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx";
+            this.openFileDialog1.Title = "Abrir Archivo";
             // 
             // btnAbrir
             // 
@@ -67,6 +69,7 @@ namespace ProyectoModernizacion
             // 
             // dgvExcel
             // 
+            this.dgvExcel.AllowUserToAddRows = false;
             this.dgvExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -79,6 +82,12 @@ namespace ProyectoModernizacion
             this.dgvExcel.RowTemplate.Height = 29;
             this.dgvExcel.Size = new System.Drawing.Size(729, 441);
             this.dgvExcel.TabIndex = 1;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "ExcelPrincipal";
+            this.saveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx";
+            this.saveFileDialog1.Title = "Guardar Archivo";
             // 
             // btnGuardar
             // 
@@ -141,7 +150,7 @@ namespace ProyectoModernizacion
             this.mainMenu.Size = new System.Drawing.Size(829, 624);
             this.mainMenu.TabIndex = 5;
             // 
-            // Form1
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -151,7 +160,7 @@ namespace ProyectoModernizacion
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.sideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "frmPrincipal";
             this.Text = "Sistema de Control de Personal";
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).EndInit();
             this.topMenu.ResumeLayout(false);
