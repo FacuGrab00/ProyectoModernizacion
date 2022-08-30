@@ -16,6 +16,10 @@ namespace ProyectoModernizacion
 {
     public partial class Form1 : Form
     {
+
+        //Mover panel
+        int m, mx, my;
+
         public Form1()
         {
             InitializeComponent();
@@ -114,9 +118,34 @@ namespace ProyectoModernizacion
             MessageBox.Show("Se guardó con exito!");
         }
 
+        //PANEL PARA MOVER FORM
+        private void topMenu_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
+            }
+        }
+
+        private void topMenu_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = 0;
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void topMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = 1;
+            mx = e.X;
+            my = e.Y;
+        }
+
+
+
+
     }
 }

@@ -58,8 +58,9 @@ namespace ProyectoModernizacion
             this.btnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrir.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAbrir.Location = new System.Drawing.Point(0, 0);
+            this.btnAbrir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAbrir.Name = "btnAbrir";
-            this.btnAbrir.Size = new System.Drawing.Size(250, 50);
+            this.btnAbrir.Size = new System.Drawing.Size(300, 60);
             this.btnAbrir.TabIndex = 0;
             this.btnAbrir.Text = "Abrir Archivo";
             this.btnAbrir.UseVisualStyleBackColor = false;
@@ -73,11 +74,12 @@ namespace ProyectoModernizacion
             this.dgvExcel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvExcel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(46)))), ((int)(((byte)(61)))));
             this.dgvExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExcel.Location = new System.Drawing.Point(51, 71);
+            this.dgvExcel.Location = new System.Drawing.Point(61, 85);
+            this.dgvExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvExcel.Name = "dgvExcel";
             this.dgvExcel.RowHeadersWidth = 51;
             this.dgvExcel.RowTemplate.Height = 29;
-            this.dgvExcel.Size = new System.Drawing.Size(729, 441);
+            this.dgvExcel.Size = new System.Drawing.Size(875, 529);
             this.dgvExcel.TabIndex = 1;
             // 
             // btnGuardar
@@ -88,9 +90,10 @@ namespace ProyectoModernizacion
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(133)))), ((int)(((byte)(254)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnGuardar.Location = new System.Drawing.Point(0, 50);
+            this.btnGuardar.Location = new System.Drawing.Point(0, 60);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(250, 50);
+            this.btnGuardar.Size = new System.Drawing.Size(300, 60);
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar Archivo";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -102,17 +105,22 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.topMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(46)))), ((int)(((byte)(61)))));
             this.topMenu.Controls.Add(this.btnClose);
-            this.topMenu.Location = new System.Drawing.Point(250, 0);
+            this.topMenu.Location = new System.Drawing.Point(300, 0);
+            this.topMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topMenu.Name = "topMenu";
-            this.topMenu.Size = new System.Drawing.Size(829, 40);
+            this.topMenu.Size = new System.Drawing.Size(995, 48);
             this.topMenu.TabIndex = 3;
+            this.topMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topMenu_MouseDown);
+            this.topMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topMenu_MouseMove);
+            this.topMenu.MouseUp += new System.Windows.Forms.MouseEventHandler(this.topMenu_MouseUp);
             // 
             // btnClose
             // 
             this.btnClose.Image = global::ProyectoModernizacion.Properties.Resources.x_regular_24;
-            this.btnClose.Location = new System.Drawing.Point(787, 5);
+            this.btnClose.Location = new System.Drawing.Point(944, 6);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.Size = new System.Drawing.Size(36, 36);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnClose.TabIndex = 0;
             this.btnClose.TabStop = false;
@@ -125,8 +133,9 @@ namespace ProyectoModernizacion
             this.sideBar.Controls.Add(this.btnAbrir);
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideBar.Location = new System.Drawing.Point(0, 0);
+            this.sideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sideBar.Name = "sideBar";
-            this.sideBar.Size = new System.Drawing.Size(250, 664);
+            this.sideBar.Size = new System.Drawing.Size(300, 797);
             this.sideBar.TabIndex = 4;
             // 
             // mainMenu
@@ -136,21 +145,23 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(87)))));
             this.mainMenu.Controls.Add(this.dgvExcel);
-            this.mainMenu.Location = new System.Drawing.Point(250, 40);
+            this.mainMenu.Location = new System.Drawing.Point(300, 48);
+            this.mainMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(829, 624);
+            this.mainMenu.Size = new System.Drawing.Size(995, 749);
             this.mainMenu.TabIndex = 5;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.ClientSize = new System.Drawing.Size(1079, 664);
+            this.ClientSize = new System.Drawing.Size(1295, 797);
             this.Controls.Add(this.topMenu);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.sideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Sistema de Control de Personal";
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).EndInit();
