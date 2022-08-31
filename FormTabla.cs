@@ -24,6 +24,8 @@ namespace ProyectoModernizacion
         string filePath = "";
         string savePath = "";
         string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelPrincipal.xlsx";
+        bool loadedColumns = false;
+        int iColumn = 1;
 
         //GETTERS Y SETTERS
         public string FilePath { get => filePath; set => filePath = value; }
@@ -46,20 +48,21 @@ namespace ProyectoModernizacion
 
             //INDICE FILAS
             int iRow = 2;
-            //INDICE COLUMNAS
-            int iColumn = 1;
 
             //INSTANCIA PARA MANEJAR LAS COLUMNAS DE DGV
             DataGridViewTextBoxColumn columna;
 
             //DETECTA LAS COLUMNAS DEL EXCEL Y LAS GENERO EN EL DGV
-            while (!String.IsNullOrEmpty(excelImportado.GetCellValueAsString(1, iColumn)))
+            while (!String.IsNullOrEmpty(excelImportado.GetCellValueAsString(1, iColumn)) && loadedColumns == false)
             {
                 columna = new DataGridViewTextBoxColumn();
                 columna.HeaderText = excelImportado.GetCellValueAsString(1, iColumn);
                 dgvExcel.Columns.Add(columna);
                 iColumn++;
             }
+
+            //SE HA IMPORTADO UN PRIMER EXCEL POR ENDE NO ES NECESARIO VOLVER A CARGAR LAS COLUMNAS
+            loadedColumns = true;
 
             //DETECTA LAS FILAS DEL EXCEL Y LAS CARGO AL DGV
             while (!String.IsNullOrEmpty(excelImportado.GetCellValueAsString(iRow, 1)))
@@ -80,17 +83,19 @@ namespace ProyectoModernizacion
             excelPrincipal = new SLDocument(mainPath);
 
             int iRow = 2;
-            int iColumn = 1;
 
             DataGridViewTextBoxColumn columna;
 
-            while (!String.IsNullOrEmpty(excelPrincipal.GetCellValueAsString(1, iColumn)))
+            while (!String.IsNullOrEmpty(excelPrincipal.GetCellValueAsString(1, iColumn)) && loadedColumns == false)
             {
                 columna = new DataGridViewTextBoxColumn();
                 columna.HeaderText = excelPrincipal.GetCellValueAsString(1, iColumn);
                 dgvExcel.Columns.Add(columna);
                 iColumn++;
             }
+
+            //SE HA IMPORTADO UN PRIMER EXCEL POR ENDE NO ES NECESARIO VOLVER A CARGAR LAS COLUMNAS
+            loadedColumns = true;
 
             while (!String.IsNullOrEmpty(excelPrincipal.GetCellValueAsString(iRow, 1)))
             {
