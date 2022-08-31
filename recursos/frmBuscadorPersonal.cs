@@ -22,5 +22,7 @@ namespace ProyectoModernizacion.recursos
            // ((DataTable)dgvExcel.DataSource).DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", filterField, txtDni.Text);
 
         }
+
+        
     }
 }

@@ -118,33 +118,49 @@ namespace ProyectoModernizacion
             MessageBox.Show("Se guardó con exito!");
         }
 
+
         //PANEL PARA MOVER FORM
-        private void topMenu_MouseMove(object sender, MouseEventArgs e)
+        private void topMenu_MouseDown(object sender, MouseEventArgs e)
         {
-            if (m == 1)
-            {
-                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
-            }
+            if (e.Button == MouseButtons.Left)
+                recursos.MoverForm.MoverFrm(this);
         }
-
-        private void topMenu_MouseUp(object sender, MouseEventArgs e)
-        {
-            m = 0;
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void topMenu_MouseDown(object sender, MouseEventArgs e)
+        //Boton Maximizar
+        private void btnMax_Click(object sender, EventArgs e)
         {
-            m = 1;
-            mx = e.X;
-            my = e.Y;
+            if (this.WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                    this.WindowState = FormWindowState.Normal;
+            }
+            btnRest.Visible = true;
+            btnMax.Visible = false;
         }
 
+        
 
+        //Boton Minimazar
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        //Boton Restaurar
+        private void btnRest_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRest.Visible = false;
+            btnMax.Visible = true;
+        }  
+
+        
 
 
     }
