@@ -73,6 +73,7 @@ namespace ProyectoModernizacion
                 moduloTabla.FilePath = openFileDialog1.FileName;
                 //REALIZAMOS LA LECTURA DEL EXCEL
                 moduloTabla.importarExcel();
+                moduloTabla.crearCopia();
             }
             else
             {
@@ -94,7 +95,6 @@ namespace ProyectoModernizacion
             if(saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 moduloTabla.SavePath = saveFileDialog1.FileName;
-                moduloTabla.crearCopia();
                 moduloTabla.exportarExcel();
                 MessageBox.Show("Se guardó con exito!");
             }

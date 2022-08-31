@@ -34,8 +34,10 @@ namespace ProyectoModernizacion
         //CARGADO DEL FORMULARIO
         private void FormTabla_Load(object sender, EventArgs e)
         {
+            //MessageBox.Show(mainPath2);
+            bool bandera = Directory.Exists(mainPath);
             //CARGA EL EXCEL PRINCIPAL EN CASO DE HABER EXISTIDO UN PRIMER EXCEL IMPORTADO.
-            if (Directory.Exists(mainPath))
+            if (File.Exists(mainPath))
             {
                 cargarExcel();
             }
