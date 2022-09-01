@@ -16,7 +16,7 @@ namespace ProyectoModernizacion
             InitializeComponent();
         }
 
-        FormTabla tabla;
+        FormTabla tabla = null;
         List<Registro> registros = new List<Registro>();
         List<Registro> registrosProcesados = new List<Registro>();
 
@@ -24,17 +24,18 @@ namespace ProyectoModernizacion
         public FormTabla Tabla { set => tabla = value; }
         
         //GENERAMOS UNA LISTA CON LOS REGISTROS PARA MANIPULARLOS
-        public void CargarDatos()
+        public void GenerarRegistros()
         {
             //INSTANCIAMOS EL EXCEL PRINCIPAL
-            SLDocument excelPrincipal = tabla.ExcelPrincipal;
+            SLDocument excelPrincipal = new SLDocument(tabla.MainPath);
+            //SLDocument excelPrincipal = tabla.ExcelPrincipal;
             Registro registro;
             int iRow = 2;
             if(excelPrincipal != null)
             {
                 while (!String.IsNullOrEmpty(excelPrincipal.GetCellValueAsString(iRow, 1)))
                 {
-                    int id = excelPrincipal.GetCellValueAsInt32(iRow, 1);
+                    string id = excelPrincipal.GetCellValueAsString(iRow, 1);
                     string nombre = excelPrincipal.GetCellValueAsString(iRow, 2);
                     DateTime hora = Convert.ToDateTime(excelPrincipal.GetCellValueAsString(iRow, 3));
                     string estado = excelPrincipal.GetCellValueAsString(iRow, 4);
@@ -48,35 +49,46 @@ namespace ProyectoModernizacion
         //PROCESAR REGISTROS
         public void ProcesarRegistros()
         {
+            Registro regActual;
+            Registro regAnterior;
+            TimeSpan hora;
             for (int i = 1; i < registros.Count; i++)
             {
-                Registro regActual = registros[i];
-                Registro regAnterior = registros[i-1];
-                TimeSpan hora = TimeSpan.Zero;
+                regActual = registros[i];
+                regAnterior = registros[i-1];
                 if (CasoComun(regActual, regAnterior))
                 {
                     hora = regActual.Horario - regAnterior.Horario;
-                }
-
-                if(hora != TimeSpan.Zero)
-                {
                     regActual.Horas = hora;
                     registrosProcesados.Add(regActual);
                 }
             }
         }
 
-        private void CargarRegistros()
+        //VOLCAMOS LOS REGISTROS AL DGV
+        public void VolcarRegistros()
         {
+            string[] vector = new string[3];
+            dgvExcel.ColumnCount = 3;
+            dgvExcel.Columns[0].HeaderText = "ID de persona";
+            dgvExcel.Columns[1].HeaderText = "Nombre";
+            dgvExcel.Columns[2].HeaderText = "Tiempo Trabajado";
 
+            foreach (Registro registro in registrosProcesados)
+            {
+                vector[0] = registro.ID;
+                vector[1] = registro.Nombre;
+                vector[2] = registro.Horas.ToString();
+                dgvExcel.Rows.Add(vector);
+            }
         }
 
         private bool CasoComun(Registro regActual, Registro regAnterior)
         {
             bool bandera = false;
-            if (regActual.ID == regAnterior.ID)
+            if (regActual.ID.Equals(regAnterior.ID))
             {
-                if (regActual.Horario.Day == regAnterior.Horario.Day)
+                if (regActual.Horario.Day.Equals(regAnterior.Horario.Day))
                 {
                     if (regActual.Estado == "Registro de salida" && regAnterior.Estado == "Registro de entrada")
                     {

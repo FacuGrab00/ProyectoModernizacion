@@ -6,13 +6,13 @@ namespace ProyectoModernizacion
 {
     public class Registro
     {
-        int id;
+        string id;
         DateTime horario;
         string nombre;
         string estado;
         TimeSpan horas;
 
-        public Registro(int id, string nombre, DateTime horario, string estado)
+        public Registro(string id, string nombre, DateTime horario, string estado)
         {
             this.id = id;
             this.horario = horario;
@@ -20,7 +20,7 @@ namespace ProyectoModernizacion
             this.estado = estado;
         }
 
-        public Registro(int id, string nombre, DateTime horario, TimeSpan horas)
+        public Registro(string id, string nombre, DateTime horario, TimeSpan horas)
         {
             this.id = id;
             this.horario = horario;
@@ -28,7 +28,7 @@ namespace ProyectoModernizacion
             this.horas = horas;
         }
 
-        public int ID { get => id; }
+        public string ID { get => id; }
         public DateTime Horario { get => horario; }
         public string Nombre { get => nombre; }
         public string Estado { get => estado; }

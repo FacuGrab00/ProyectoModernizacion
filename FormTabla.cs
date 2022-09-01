@@ -15,6 +15,9 @@ namespace ProyectoModernizacion
         public FormTabla()
         {
             InitializeComponent();
+
+            if (File.Exists(mainPath))
+                excelPrincipal = new SLDocument(mainPath);
         }
         
         //INSTANCIA QUE MANEJA EL EXCEL PRINCIPAL
@@ -24,12 +27,17 @@ namespace ProyectoModernizacion
         string filePath = "";
         string savePath = "";
         string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelPrincipal.xlsx";
+
+        //BANDERA: CONTROLA SI LAS COLUMNAS DEL GRID YA FUERON CARGADAS
         bool loadedColumns = false;
+
+        //ME INDICA LA CANTIDAD DE COLUMNAS QUE MANEJA EL ARCHIVO EXCEL
         int iColumn = 1;
 
         //GETTERS Y SETTERS
         public string FilePath { get => filePath; set => filePath = value; }
         public string SavePath { get => savePath; set => savePath = value; }
+        public string MainPath { get => mainPath;}
         public SLDocument ExcelPrincipal { get => excelPrincipal; set => excelPrincipal = value; }
 
         //CARGADO DEL FORMULARIO
@@ -37,9 +45,7 @@ namespace ProyectoModernizacion
         {
             //CARGA EL EXCEL PRINCIPAL EN CASO DE HABER EXISTIDO UN PRIMER EXCEL IMPORTADO.
             if (File.Exists(mainPath))
-            {
                 CargarExcel();
-            }
         }
 
         //IMPORTA LOS EXCEL, EN CASO DE ESTAR TRABAJANDO CON UNO LO ADJUNTA EN LAS ULTIMAS FILAS.
@@ -47,83 +53,17 @@ namespace ProyectoModernizacion
         {
             //CREAMOS UNA INSTANCIA PARA MANEJAR EL EXCEL IMPORTADO
             SLDocument excelImportado = new SLDocument(filePath);
-
-            //INDICE FILAS
-            int iRow = 2;
-
-            //INSTANCIA PARA MANEJAR LAS COLUMNAS DE DGV
-            DataGridViewTextBoxColumn columna;
-
-            //DETECTA LAS COLUMNAS DEL EXCEL Y LAS GENERO EN EL DGV
-            while (!String.IsNullOrEmpty(excelImportado.GetCellValueAsString(1, iColumn)) && loadedColumns == false)
-            {
-                columna = new DataGridViewTextBoxColumn();
-                columna.HeaderText = excelImportado.GetCellValueAsString(1, iColumn);
-                dgvExcel.Columns.Add(columna);
-                iColumn++;
-            }
-
-            //SE HA IMPORTADO UN PRIMER EXCEL POR ENDE NO ES NECESARIO VOLVER A CARGAR LAS COLUMNAS
-            loadedColumns = true;
-
-            //DETECTA LAS FILAS DEL EXCEL Y LAS CARGO AL DGV
-            while (!String.IsNullOrEmpty(excelImportado.GetCellValueAsString(iRow, 1)))
-            {
-                string[] vector = new string[iColumn];
-                for (int i = 0; i < iColumn; i++)
-                {
-                    vector[i] = excelImportado.GetCellValueAsString(iRow, i + 1);
-                }
-                dgvExcel.Rows.Add(vector);
-                iRow++;
-            }
+            VolcarExcel(excelImportado);
         }
 
         private void CargarExcel()
         {
             //INSTANCIAMOS EL EXCEL PRINCIPAL
             excelPrincipal = new SLDocument(mainPath);
-
             VolcarExcel(excelPrincipal);
-            /*
-            //INDICE DE LAS FILAS DEL EXCEL (FILA 1: TITULOS, FILA 2: REGISTROS)
-            int iRow = 2;
-
-            //OBJETO DE TIPO COLUMNAS DE DGV
-            DataGridViewTextBoxColumn columna;
-
-            //RECORREMOS EL EXCEL HASTA QUE ENCONTREMOS COLUMNAS VACIAS
-            while (!String.IsNullOrEmpty(excelPrincipal.GetCellValueAsString(1, iColumn)) && loadedColumns == false)
-            {
-                columna = new DataGridViewTextBoxColumn();
-                columna.HeaderText = excelPrincipal.GetCellValueAsString(1, iColumn); //OBTENEMOS EL TITULO DE LA COLUMNA
-                dgvExcel.Columns.Add(columna); //LA CARGAMOS EN EL GRID
-                iColumn++;
-            }
-
-            //SE HA IMPORTADO UN PRIMER EXCEL POR ENDE NO ES NECESARIO VOLVER A CARGAR LAS COLUMNAS
-            loadedColumns = true;
-
-            //RECORREMOS EL EXCEL HASTA ENCONTRAR FILAS VACIAS
-            while (!String.IsNullOrEmpty(excelPrincipal.GetCellValueAsString(iRow, 1)))
-            {
-                //VECTOR SIMULA REGISTRO
-                string[] vector = new string[iColumn];
-
-                //RECORREMOS LOS DATOS DEL REGISTRO
-                for (int i = 0; i < iColumn; i++)
-                {
-                    //ALMACENAMOS LOS DATOS
-                    vector[i] = excelPrincipal.GetCellValueAsString(iRow, i + 1);
-                }
-
-                //CARGAMOS LOS DATOS EN EL DGV
-                dgvExcel.Rows.Add(vector);
-                iRow++;
-            }
-            */
         }
 
+        //REALIZA UN VOLCADO DE LOS DATOS DEL EXCEL AL DGV
         private void VolcarExcel(SLDocument excel)
         {
             //INDICE FILAS
