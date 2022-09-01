@@ -1,7 +1,7 @@
 ﻿
 namespace ProyectoModernizacion
 {
-    partial class Form1
+    partial class FormViejo
     {
         /// <summary>
         ///  Required designer variable.

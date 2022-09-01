@@ -14,13 +14,13 @@ using SpreadsheetLight;
 
 namespace ProyectoModernizacion
 {
-    public partial class Form1 : Form
+    public partial class FormViejo : Form
     {
 
         //Mover panel
         int m, mx, my;
 
-        public Form1()
+        public FormViejo()
         {
             InitializeComponent();
             openFileDialog1.FileName = "Selecciona el archivo Excel";
@@ -155,9 +155,7 @@ namespace ProyectoModernizacion
         //Boton Restaurar
         private void btnRest_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            btnRest.Visible = false;
-            btnMax.Visible = true;
+            
         }  
 
         
