@@ -22,13 +22,13 @@ namespace ProyectoModernizacion
 
         //RECIBIMOS LA INSTANCIA DE TABLA
         public FormTabla Tabla { set => tabla = value; }
-        
+       
+
         //GENERAMOS UNA LISTA CON LOS REGISTROS PARA MANIPULARLOS
         public void GenerarRegistros()
         {
             //INSTANCIAMOS EL EXCEL PRINCIPAL
             SLDocument excelPrincipal = new SLDocument(tabla.MainPath);
-            //SLDocument excelPrincipal = tabla.ExcelPrincipal;
             Registro registro;
             int iRow = 2;
             if(excelPrincipal != null)

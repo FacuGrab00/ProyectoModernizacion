@@ -18,18 +18,12 @@ namespace ProyectoModernizacion
     {
         public FormMain()
         {
-            InitializeComponent();
-
-            //UNA SOLA INSTANCIA DEL MODULO TABLA QUE CONTIENE AL FORMULARIO
-            moduloRegistro = new FormRegistros();
-            moduloTabla = new FormTabla();
-            //SE ENVIA LA INSTANCIA DEL MODULO TABLA AL MODULO REGISTROS PARA ACCEDER A SU INTERFAZ.
-            moduloRegistro.Tabla = moduloTabla;
+            InitializeComponent();      
         }
 
         //UNA SOLA INSTANCIA DEL MODULO TABLA QUE CONTIENE AL FORMULARIO
-        private readonly FormTabla moduloTabla;
-        private readonly FormRegistros moduloRegistro;
+        private readonly FormTabla moduloTabla = new FormTabla();
+        private readonly FormRegistros moduloRegistro = new FormRegistros();
 
         
 
@@ -130,6 +124,8 @@ namespace ProyectoModernizacion
 
         private void BtnProcesar_Click(object sender, EventArgs e)
         {
+            //SE ENVIA LA INSTANCIA DEL MODULO TABLA AL MODULO REGISTROS PARA ACCEDER A SU INTERFAZ.
+            moduloRegistro.Tabla = moduloTabla;
             //SI EXISTE UN ARCHIVO EXCEL PREVIO SE PROCESAN LOS REGISTROS.
             if (File.Exists(moduloTabla.MainPath))
                 moduloRegistro.GenerarRegistros();

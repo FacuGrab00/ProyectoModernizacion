@@ -39,6 +39,10 @@ namespace ProyectoModernizacion
         public string SavePath { get => savePath; set => savePath = value; }
         public string MainPath { get => mainPath;}
         public SLDocument ExcelPrincipal { get => excelPrincipal; set => excelPrincipal = value; }
+        public SLDocument getExcelPrincipal()
+        {
+            return excelPrincipal;
+        }
 
         //CARGADO DEL FORMULARIO
         private void FormTabla_Load(object sender, EventArgs e)
