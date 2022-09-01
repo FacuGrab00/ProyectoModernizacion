@@ -18,6 +18,7 @@ namespace ProyectoModernizacion
     {
         public FormMain()
         {
+
             InitializeComponent();
             btnRestaurar.Visible = false;
         }
@@ -63,16 +64,24 @@ namespace ProyectoModernizacion
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+
+            InitializeComponent();      
+
         }
 
         //UNA SOLA INSTANCIA DEL MODULO TABLA QUE CONTIENE AL FORMULARIO
-        FormTabla moduloTabla = new FormTabla();
+        private readonly FormTabla moduloTabla = new FormTabla();
+        private readonly FormRegistros moduloRegistro = new FormRegistros();
+        private readonly recursos.frmBuscadorPersonal moduloBuscarPersonal = new recursos.frmBuscadorPersonal();
+
+
+        
 
         //OCULTA LOS SUBMENUS
-        private void hideSubMenu()
+        private void HideSubMenu()
         {
-            if (subMenu.Visible == true)
-                subMenu.Visible = false;
+            if (subMenuProcesar.Visible == true)
+                subMenuProcesar.Visible = false;
             if (subMenuTabla.Visible == true)
                 subMenuTabla.Visible = false;
             if (subMenu2.Visible == true)
@@ -80,11 +89,11 @@ namespace ProyectoModernizacion
         }
 
         //DESPLIEGA LOS SUBMENUS
-        private void showSubMenu(Panel subMenu)
+        private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
-                hideSubMenu();
+                HideSubMenu();
                 subMenu.Visible = true;
             }
             else
@@ -105,7 +114,7 @@ namespace ProyectoModernizacion
         }
 
         //DESENCADENA EL PROCESO PARA IMPORTAR UN EXCEL
-        private void btnAbrir_Click(object sender, EventArgs e)
+        private void BtnAbrir_Click(object sender, EventArgs e)
         {
             //MENSAJE DE ADVERTENCIA
             MessageBox.Show("IMPORTANTE: Al momento de importar el EXCEL, Asegurese que las COLUMNAS se encuentran en la FILA 1 y no hay ESPACIOS en blanco entre las FILAS");
@@ -116,8 +125,8 @@ namespace ProyectoModernizacion
                 //GUARDAMOS LA DIRECCIÓN DEL EXCEL A IMPORTAR
                 moduloTabla.FilePath = openFileDialog1.FileName;
                 //REALIZAMOS LA LECTURA DEL EXCEL
-                moduloTabla.importarExcel();
-                moduloTabla.crearCopia();
+                moduloTabla.ImportarExcel();
+                moduloTabla.CrearCopia();
             }
             else
             {
@@ -126,7 +135,7 @@ namespace ProyectoModernizacion
         }
 
         //FUNCIÓN PARA PASAR EN MAYUSCULAS LOS NOMBRES Y APELLIDOS (SIN USO)
-        private string pasarMayuscula(String nombreApellido)
+        private string PasarMayuscula(String nombreApellido)
         {
             nombreApellido = nombreApellido.UpperFirstChar();
 
@@ -134,12 +143,12 @@ namespace ProyectoModernizacion
         }
 
         //DESENCADENA TODO EL PROCESO DE EXPORTACIÓN DEL EXCEL PRINCIPAL
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if(saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 moduloTabla.SavePath = saveFileDialog1.FileName;
-                moduloTabla.exportarExcel();
+                moduloTabla.ExportarExcel();
                 MessageBox.Show("Se guardó con exito!");
             }
             else
@@ -150,19 +159,44 @@ namespace ProyectoModernizacion
             
         }
 
+
+        //CIERRA LA APLICACIÓN
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
         //DESPLIEGA SUBMENU Y ABRE EL MODULO TABLA
-        private void btnTabla_Click(object sender, EventArgs e)
+        private void BtnTabla_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(moduloTabla);
-            showSubMenu(subMenuTabla);
+            ShowSubMenu(subMenuTabla);
         }
-        
 
-
-        private void btnBuscador_Click(object sender, EventArgs e)
+        private void BtnProcesar_Click(object sender, EventArgs e)
         {
-            recursos.frmBuscadorPersonal frmbusc = new recursos.frmBuscadorPersonal();
-            frmbusc.Show();
+            //SE ENVIA LA INSTANCIA DEL MODULO TABLA AL MODULO REGISTROS PARA ACCEDER A SU INTERFAZ.
+            moduloRegistro.Tabla = moduloTabla;
+            //SI EXISTE UN ARCHIVO EXCEL PREVIO SE PROCESAN LOS REGISTROS.
+            if (File.Exists(moduloTabla.MainPath))
+                moduloRegistro.GenerarRegistros();
+            
+            AbrirFormHijo(moduloRegistro);
+            ShowSubMenu(subMenuProcesar);
+        }
+
+        private void BtnProcesarArchivo_Click(object sender, EventArgs e)
+        {
+            moduloRegistro.ProcesarRegistros();
+            moduloRegistro.VolcarRegistros();
+        }
+       
+
+        private void BtnBuscador_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormHijo(moduloBuscarPersonal);
+            moduloBuscarPersonal.setBuscarId(moduloRegistro);
         }
     }
 }

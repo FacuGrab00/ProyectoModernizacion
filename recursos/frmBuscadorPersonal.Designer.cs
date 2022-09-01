@@ -30,31 +30,24 @@ namespace ProyectoModernizacion.recursos
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtHoras = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label2
+            // btnBuscar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 122);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Dni:";
-            // 
-            // txtDni
-            // 
-            this.txtDni.Location = new System.Drawing.Point(135, 116);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(402, 31);
-            this.txtDni.TabIndex = 3;
-            
+            this.btnBuscar.Location = new System.Drawing.Point(668, 55);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(108, 31);
+            this.btnBuscar.TabIndex = 8;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label1
             // 
@@ -88,15 +81,22 @@ namespace ProyectoModernizacion.recursos
             this.txtHoras.Size = new System.Drawing.Size(402, 31);
             this.txtHoras.TabIndex = 7;
             // 
-            // btnBuscar
+            // label2
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(567, 116);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(108, 31);
-            this.btnBuscar.TabIndex = 8;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label2.Location = new System.Drawing.Point(200, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Dni:";
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(249, 55);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(402, 31);
+            this.txtDni.TabIndex = 3;
             // 
             // frmBuscadorPersonal
             // 
@@ -111,6 +111,7 @@ namespace ProyectoModernizacion.recursos
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBuscadorPersonal";
             this.Text = "frmBuscadorPersonal";
             this.ResumeLayout(false);
@@ -119,12 +120,12 @@ namespace ProyectoModernizacion.recursos
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtNombre;
         public System.Windows.Forms.TextBox txtHoras;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtDni;
     }
 }

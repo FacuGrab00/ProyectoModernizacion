@@ -15,45 +15,20 @@ namespace ProyectoModernizacion.recursos
             InitializeComponent();
         }
 
-        
 
 
-        
-        
+
+        FormRegistros buscarId;
+        List<Registro> registros = new List<Registro>();
+
+        public void setBuscarId(FormRegistros busId)
+        {
+            buscarId = busId;
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            /*
-            Form1 frmPpal = new Form1();
-            DataTable dt;
-            dt = frmPpal.llenar_fill_DGV();
-            
-            //frmPpal.Show();
-            int bandfbus=0;
 
-
-            string busDni = txtDni.Text;
-
-            for (int i = 0; i < dt.Rows.Count-1; i++)
-            {
-                if (busDni == dt.Rows[i]["DNI"].ToString())
-                {
-                    txtNombre.Text = dt.Rows[i]["Nombre"].ToString();
-                    //txtHoras.Text = frmPpal.dgvDatos.Rows[i].Cells[3].Value.ToString();
-                    bandfbus = 1;
-                    break;
-                }
-                
-                    
-            }
-            if (bandfbus == 0)
-            {
-                MessageBox.Show("NO SE ENCUENTRA ESA PERSONA");
-            }*/
-
-
-
-
-
+            registros = buscarId.getRegistros();
 
 
             ////////////////////////////////
