@@ -18,12 +18,62 @@ namespace ProyectoModernizacion
     {
         public FormMain()
         {
+
+            InitializeComponent();
+            btnRestaurar.Visible = false;
+        }
+
+        //PANEL PARA MOVER FORM
+        private void topMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                recursos.MoverForm.MoverFrm(this);
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+
+            }
+            else
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+
+            }
+            btnRestaurar.Visible = true;
+            btnMaximizar.Visible = false;
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRestaurar.Visible = false;
+            btnMaximizar.Visible = true;
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
             InitializeComponent();      
+
         }
 
         //UNA SOLA INSTANCIA DEL MODULO TABLA QUE CONTIENE AL FORMULARIO
         private readonly FormTabla moduloTabla = new FormTabla();
         private readonly FormRegistros moduloRegistro = new FormRegistros();
+        private readonly recursos.frmBuscadorPersonal moduloBuscarPersonal = new recursos.frmBuscadorPersonal();
+
 
         
 
@@ -109,11 +159,13 @@ namespace ProyectoModernizacion
             
         }
 
+
         //CIERRA LA APLICACIÓN
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
 
         //DESPLIEGA SUBMENU Y ABRE EL MODULO TABLA
         private void BtnTabla_Click(object sender, EventArgs e)
@@ -138,6 +190,13 @@ namespace ProyectoModernizacion
         {
             moduloRegistro.ProcesarRegistros();
             moduloRegistro.VolcarRegistros();
+        }
+       
+
+        private void BtnBuscador_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormHijo(moduloBuscarPersonal);
+            moduloBuscarPersonal.setBuscarId(moduloRegistro);
         }
     }
 }

@@ -20,8 +20,13 @@ namespace ProyectoModernizacion
         List<Registro> registros = new List<Registro>();
         List<Registro> registrosProcesados = new List<Registro>();
 
+
         //RECIBIMOS LA INSTANCIA DE TABLA
         public FormTabla Tabla { set => tabla = value; }
+        public List<Registro> getRegistros()
+        {
+            return registrosProcesados;
+        }
        
 
         //GENERAMOS UNA LISTA CON LOS REGISTROS PARA MANIPULARLOS

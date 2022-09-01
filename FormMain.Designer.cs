@@ -35,12 +35,15 @@ namespace ProyectoModernizacion
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.topMenu = new System.Windows.Forms.Panel();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnRestaurar = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.sideBar = new System.Windows.Forms.Panel();
             this.subMenu2 = new System.Windows.Forms.Panel();
             this.BtnBuscador = new System.Windows.Forms.Button();
             this.subMenuProcesar = new System.Windows.Forms.Panel();
-            this.BtnProcesarRegistros = new System.Windows.Forms.Button();
             this.BtnProcesar = new System.Windows.Forms.Button();
             this.subMenuTabla = new System.Windows.Forms.Panel();
             this.BtnTabla = new System.Windows.Forms.Button();
@@ -50,7 +53,6 @@ namespace ProyectoModernizacion
             this.topMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.sideBar.SuspendLayout();
-            this.subMenuProcesar.SuspendLayout();
             this.subMenuTabla.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +77,7 @@ namespace ProyectoModernizacion
             this.BtnAbrir.Location = new System.Drawing.Point(0, 0);
             this.BtnAbrir.Name = "BtnAbrir";
             this.BtnAbrir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnAbrir.Size = new System.Drawing.Size(250, 50);
+            this.BtnAbrir.Size = new System.Drawing.Size(300, 50);
             this.BtnAbrir.TabIndex = 0;
             this.BtnAbrir.Text = "Abrir Archivo";
             this.BtnAbrir.UseVisualStyleBackColor = false;
@@ -102,7 +104,7 @@ namespace ProyectoModernizacion
             this.BtnGuardar.Location = new System.Drawing.Point(0, 50);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnGuardar.Size = new System.Drawing.Size(250, 50);
+            this.BtnGuardar.Size = new System.Drawing.Size(300, 50);
             this.BtnGuardar.TabIndex = 2;
             this.BtnGuardar.Text = "Guardar Archivo";
             this.BtnGuardar.UseVisualStyleBackColor = false;
@@ -111,22 +113,89 @@ namespace ProyectoModernizacion
             // topMenu
             // 
             this.topMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            this.topMenu.Controls.Add(this.btnMaximizar);
+            this.topMenu.Controls.Add(this.btnRestaurar);
+            this.topMenu.Controls.Add(this.btnMinimizar);
+            this.topMenu.Controls.Add(this.btnCerrar);
             this.topMenu.Controls.Add(this.btnClose);
             this.topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.topMenu.Location = new System.Drawing.Point(0, 0);
+            this.topMenu.Margin = new System.Windows.Forms.Padding(4);
             this.topMenu.Name = "topMenu";
-            this.topMenu.Size = new System.Drawing.Size(1240, 40);
+            this.topMenu.Size = new System.Drawing.Size(1488, 48);
             this.topMenu.TabIndex = 3;
+            this.topMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topMenu_MouseDown);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.ForeColor = System.Drawing.Color.White;
+            this.btnMaximizar.Location = new System.Drawing.Point(1397, 7);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(41, 34);
+            this.btnMaximizar.TabIndex = 5;
+            this.btnMaximizar.Text = "M";
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.FlatAppearance.BorderSize = 0;
+            this.btnRestaurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestaurar.ForeColor = System.Drawing.Color.White;
+            this.btnRestaurar.Location = new System.Drawing.Point(1397, 7);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(41, 34);
+            this.btnRestaurar.TabIndex = 7;
+            this.btnRestaurar.Text = "R";
+            this.btnRestaurar.UseVisualStyleBackColor = true;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.ForeColor = System.Drawing.Color.White;
+            this.btnMinimizar.Location = new System.Drawing.Point(1350, 7);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(41, 34);
+            this.btnMinimizar.TabIndex = 6;
+            this.btnMinimizar.Text = "m";
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(1444, 7);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(41, 34);
+            this.btnCerrar.TabIndex = 4;
+            this.btnCerrar.Text = "X";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Image = global::ProyectoModernizacion.Properties.Resources.x_regular_24__1_;
-            this.btnClose.Location = new System.Drawing.Point(1198, 5);
+            this.btnClose.Location = new System.Drawing.Point(0, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnClose.TabIndex = 0;
+            this.btnClose.Size = new System.Drawing.Size(100, 50);
+            this.btnClose.TabIndex = 7;
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
@@ -140,18 +209,20 @@ namespace ProyectoModernizacion
             this.sideBar.Controls.Add(this.subMenuTabla);
             this.sideBar.Controls.Add(this.BtnTabla);
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sideBar.Location = new System.Drawing.Point(0, 40);
+            this.sideBar.Location = new System.Drawing.Point(0, 48);
+            this.sideBar.Margin = new System.Windows.Forms.Padding(4);
             this.sideBar.Name = "sideBar";
-            this.sideBar.Size = new System.Drawing.Size(250, 680);
+            this.sideBar.Size = new System.Drawing.Size(300, 816);
             this.sideBar.TabIndex = 4;
             // 
             // subMenu2
             // 
             this.subMenu2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
             this.subMenu2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenu2.Location = new System.Drawing.Point(0, 350);
+            this.subMenu2.Location = new System.Drawing.Point(0, 370);
+            this.subMenu2.Margin = new System.Windows.Forms.Padding(4);
             this.subMenu2.Name = "subMenu2";
-            this.subMenu2.Size = new System.Drawing.Size(250, 100);
+            this.subMenu2.Size = new System.Drawing.Size(300, 120);
             this.subMenu2.TabIndex = 6;
             this.subMenu2.Visible = false;
             // 
@@ -167,45 +238,24 @@ namespace ProyectoModernizacion
             this.BtnBuscador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnBuscador.Image = global::ProyectoModernizacion.Properties.Resources.search_alt_2_regular_24;
             this.BtnBuscador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBuscador.Location = new System.Drawing.Point(0, 300);
+            this.BtnBuscador.Location = new System.Drawing.Point(0, 320);
             this.BtnBuscador.Name = "BtnBuscador";
             this.BtnBuscador.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnBuscador.Size = new System.Drawing.Size(250, 50);
+            this.BtnBuscador.Size = new System.Drawing.Size(300, 50);
             this.BtnBuscador.TabIndex = 5;
             this.BtnBuscador.Text = "Buscar Personal";
             this.BtnBuscador.UseVisualStyleBackColor = false;
+            this.BtnBuscador.Click += new System.EventHandler(this.BtnBuscador_Click_1);
             // 
             // subMenuProcesar
             // 
             this.subMenuProcesar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
-            this.subMenuProcesar.Controls.Add(this.BtnProcesarRegistros);
             this.subMenuProcesar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenuProcesar.Location = new System.Drawing.Point(0, 200);
+            this.subMenuProcesar.Location = new System.Drawing.Point(0, 220);
             this.subMenuProcesar.Name = "subMenuProcesar";
-            this.subMenuProcesar.Size = new System.Drawing.Size(250, 100);
+            this.subMenuProcesar.Size = new System.Drawing.Size(300, 100);
             this.subMenuProcesar.TabIndex = 0;
             this.subMenuProcesar.Visible = false;
-            // 
-            // BtnProcesarRegistros
-            // 
-            this.BtnProcesarRegistros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
-            this.BtnProcesarRegistros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnProcesarRegistros.FlatAppearance.BorderSize = 0;
-            this.BtnProcesarRegistros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(139)))));
-            this.BtnProcesarRegistros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
-            this.BtnProcesarRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnProcesarRegistros.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnProcesarRegistros.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnProcesarRegistros.Image = global::ProyectoModernizacion.Properties.Resources.file_import_solid_24;
-            this.BtnProcesarRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProcesarRegistros.Location = new System.Drawing.Point(0, 0);
-            this.BtnProcesarRegistros.Name = "BtnProcesarRegistros";
-            this.BtnProcesarRegistros.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnProcesarRegistros.Size = new System.Drawing.Size(250, 50);
-            this.BtnProcesarRegistros.TabIndex = 1;
-            this.BtnProcesarRegistros.Text = "Procesar Registros";
-            this.BtnProcesarRegistros.UseVisualStyleBackColor = false;
-            this.BtnProcesarRegistros.Click += new System.EventHandler(this.BtnProcesarArchivo_Click);
             // 
             // BtnProcesar
             // 
@@ -219,10 +269,10 @@ namespace ProyectoModernizacion
             this.BtnProcesar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnProcesar.Image = global::ProyectoModernizacion.Properties.Resources.report_solid_24;
             this.BtnProcesar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProcesar.Location = new System.Drawing.Point(0, 150);
+            this.BtnProcesar.Location = new System.Drawing.Point(0, 170);
             this.BtnProcesar.Name = "BtnProcesar";
             this.BtnProcesar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnProcesar.Size = new System.Drawing.Size(250, 50);
+            this.BtnProcesar.Size = new System.Drawing.Size(300, 50);
             this.BtnProcesar.TabIndex = 4;
             this.BtnProcesar.Text = "Procesar";
             this.BtnProcesar.UseVisualStyleBackColor = false;
@@ -235,8 +285,9 @@ namespace ProyectoModernizacion
             this.subMenuTabla.Controls.Add(this.BtnAbrir);
             this.subMenuTabla.Dock = System.Windows.Forms.DockStyle.Top;
             this.subMenuTabla.Location = new System.Drawing.Point(0, 50);
+            this.subMenuTabla.Margin = new System.Windows.Forms.Padding(4);
             this.subMenuTabla.Name = "subMenuTabla";
-            this.subMenuTabla.Size = new System.Drawing.Size(250, 100);
+            this.subMenuTabla.Size = new System.Drawing.Size(300, 120);
             this.subMenuTabla.TabIndex = 0;
             this.subMenuTabla.Visible = false;
             // 
@@ -255,7 +306,7 @@ namespace ProyectoModernizacion
             this.BtnTabla.Location = new System.Drawing.Point(0, 0);
             this.BtnTabla.Name = "BtnTabla";
             this.BtnTabla.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.BtnTabla.Size = new System.Drawing.Size(250, 50);
+            this.BtnTabla.Size = new System.Drawing.Size(300, 50);
             this.BtnTabla.TabIndex = 3;
             this.BtnTabla.Text = "Importar/Exportar";
             this.BtnTabla.UseVisualStyleBackColor = false;
@@ -265,27 +316,28 @@ namespace ProyectoModernizacion
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(250, 40);
+            this.panelMain.Location = new System.Drawing.Point(300, 48);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(990, 680);
+            this.panelMain.Size = new System.Drawing.Size(1188, 816);
             this.panelMain.TabIndex = 5;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(1240, 720);
+            this.ClientSize = new System.Drawing.Size(1488, 864);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.sideBar);
             this.Controls.Add(this.topMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.Text = "Sistema de Control de Personal";
             this.topMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.sideBar.ResumeLayout(false);
-            this.subMenuProcesar.ResumeLayout(false);
             this.subMenuTabla.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -309,7 +361,14 @@ namespace ProyectoModernizacion
         private System.Windows.Forms.Button BtnTabla;
         private System.Windows.Forms.Timer tmContraerMenu;
         private System.Windows.Forms.Timer tmExpandirMenu;
+
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnMinimizar;
+        private System.Windows.Forms.Button btnMaximizar;
+        private System.Windows.Forms.Button btnRestaurar;
+
         private System.Windows.Forms.Button BtnProcesarRegistros;
+
     }
 }
 
