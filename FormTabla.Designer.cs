@@ -44,23 +44,21 @@ namespace ProyectoModernizacion
             this.dgvExcel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvExcel.BackgroundColor = System.Drawing.Color.White;
             this.dgvExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExcel.Location = new System.Drawing.Point(52, 89);
-            this.dgvExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvExcel.Location = new System.Drawing.Point(50, 80);
             this.dgvExcel.Name = "dgvExcel";
             this.dgvExcel.RowHeadersWidth = 51;
             this.dgvExcel.RowTemplate.Height = 29;
-            this.dgvExcel.Size = new System.Drawing.Size(1068, 596);
+            this.dgvExcel.Size = new System.Drawing.Size(890, 500);
             this.dgvExcel.TabIndex = 2;
             // 
             // FormTabla
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(1188, 816);
+            this.ClientSize = new System.Drawing.Size(990, 680);
             this.Controls.Add(this.dgvExcel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormTabla";
             this.Text = "FormTabla";
             this.Load += new System.EventHandler(this.FormTabla_Load);

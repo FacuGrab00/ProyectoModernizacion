@@ -103,6 +103,16 @@ namespace ProyectoModernizacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minus_regular_24 {
+            get {
+                object obj = ResourceManager.GetObject("minus-regular-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap report_solid_24 {
             get {
                 object obj = ResourceManager.GetObject("report-solid-24", resourceCulture);
@@ -136,6 +146,26 @@ namespace ProyectoModernizacion.Properties {
         internal static System.Drawing.Bitmap table_regular_36 {
             get {
                 object obj = ResourceManager.GetObject("table-regular-36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap window_regular_24 {
+            get {
+                object obj = ResourceManager.GetObject("window-regular-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap windows_regular_24 {
+            get {
+                object obj = ResourceManager.GetObject("windows-regular-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

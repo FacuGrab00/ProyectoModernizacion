@@ -18,7 +18,6 @@ namespace ProyectoModernizacion
     {
         public FormMain()
         {
-
             InitializeComponent();
             btnRestaurar.Visible = false;
         }
@@ -60,17 +59,18 @@ namespace ProyectoModernizacion
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             this.WindowState = FormWindowState.Minimized;      
 
+=======
+            this.WindowState = FormWindowState.Minimized;
+>>>>>>> origin/facu_branch
         }
 
         //UNA SOLA INSTANCIA DEL MODULO TABLA QUE CONTIENE AL FORMULARIO
         private readonly FormTabla moduloTabla = new FormTabla();
         private readonly FormRegistros moduloRegistro = new FormRegistros();
         private readonly recursos.frmBuscadorPersonal moduloBuscarPersonal = new recursos.frmBuscadorPersonal();
-
-
-        
 
         //OCULTA LOS SUBMENUS
         private void HideSubMenu()
@@ -154,8 +154,16 @@ namespace ProyectoModernizacion
             
         }
 
+<<<<<<< HEAD
 
         
+=======
+        //CIERRA LA APLICACIÓN
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+>>>>>>> origin/facu_branch
 
 
         //DESPLIEGA SUBMENU Y ABRE EL MODULO TABLA
