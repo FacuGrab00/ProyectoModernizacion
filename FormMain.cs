@@ -59,12 +59,12 @@ namespace ProyectoModernizacion
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             this.WindowState = FormWindowState.Minimized;      
 
-=======
+
             this.WindowState = FormWindowState.Minimized;
->>>>>>> origin/facu_branch
+
         }
 
         //UNA SOLA INSTANCIA DEL MODULO TABLA QUE CONTIENE AL FORMULARIO
@@ -150,21 +150,14 @@ namespace ProyectoModernizacion
             {
                 //EN CASO DE NO REALIZAR EL GUARDADO
             }
-
-            
+                        
         }
-
-<<<<<<< HEAD
-
-        
-=======
+     
         //CIERRA LA APLICACIÓN
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
->>>>>>> origin/facu_branch
-
 
         //DESPLIEGA SUBMENU Y ABRE EL MODULO TABLA
         private void BtnTabla_Click(object sender, EventArgs e)
@@ -185,17 +178,20 @@ namespace ProyectoModernizacion
             ShowSubMenu(subMenuProcesar);
         }
 
-        private void BtnProcesarArchivo_Click(object sender, EventArgs e)
-        {
-            moduloRegistro.ProcesarRegistros();
-            moduloRegistro.VolcarRegistros();
-        }
        
 
         private void BtnBuscador_Click_1(object sender, EventArgs e)
         {
             AbrirFormHijo(moduloBuscarPersonal);
             moduloBuscarPersonal.setBuscarId(moduloRegistro);
+        }
+
+        
+
+        private void BtnProcesarArchivo_Click_1(object sender, EventArgs e)
+        {
+            moduloRegistro.ProcesarRegistros();
+            moduloRegistro.VolcarRegistros();
         }
     }
 }

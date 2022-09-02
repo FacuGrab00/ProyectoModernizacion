@@ -34,10 +34,6 @@ namespace ProyectoModernizacion.recursos
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.dgvIdBusq = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HorasTrabajadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIdBusq)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,11 +74,6 @@ namespace ProyectoModernizacion.recursos
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvIdBusq.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvIdBusq.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIdBusq.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Nombre,
-            this.HorasTrabajadas,
-            this.Fecha});
             this.dgvIdBusq.Location = new System.Drawing.Point(12, 107);
             this.dgvIdBusq.Name = "dgvIdBusq";
             this.dgvIdBusq.ReadOnly = true;
@@ -90,34 +81,6 @@ namespace ProyectoModernizacion.recursos
             this.dgvIdBusq.RowTemplate.Height = 33;
             this.dgvIdBusq.Size = new System.Drawing.Size(1206, 351);
             this.dgvIdBusq.TabIndex = 9;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // HorasTrabajadas
-            // 
-            this.HorasTrabajadas.HeaderText = "Horas Trabajadas";
-            this.HorasTrabajadas.MinimumWidth = 20;
-            this.HorasTrabajadas.Name = "HorasTrabajadas";
-            this.HorasTrabajadas.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.MinimumWidth = 8;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
             // 
             // frmBuscadorPersonal
             // 
@@ -142,10 +105,6 @@ namespace ProyectoModernizacion.recursos
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HorasTrabajadas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         public System.Windows.Forms.DataGridView dgvIdBusq;
     }
 }

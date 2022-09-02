@@ -104,11 +104,6 @@ namespace ProyectoModernizacion
 
             return bandera;
         }
-
-        private void GenerarExcelProcesado()
-        {
-             
-        }
     }
 
 }

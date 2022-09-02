@@ -24,23 +24,28 @@ namespace ProyectoModernizacion.recursos
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string idAbuscar = txtID.Text; 
+            string idAbuscar = txtID.Text;
 
             registros = buscarId.getRegistros();
 
+            dgvIdBusq.DataSource = null;
+            dgvIdBusq.DataSource = registros;
+
             for (int i = 0; i < registros.Count; i++)
             {
+                //dgvIdBusq.Rows[i].Cells[0] = registros.ToString();
+                /*
+                dgvIdBusq.DataSource = registros;
                 if (registros[i].ToString() == idAbuscar)
                 {
-                    //dgvIdBusq.DataSource = null;
-                    dgvIdBusq.DataSource = registros;
-                }
+                    //
+                }*/
             }
 
-            
 
 
-         }
+
+        }
             
 
             
