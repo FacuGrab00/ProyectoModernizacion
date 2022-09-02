@@ -13,6 +13,7 @@ namespace ProyectoModernizacion
         public frmBuscadorPersonal()
         {
             InitializeComponent();
+            //dgvBusqId.DataSource = registros;
         }
 
 
@@ -20,6 +21,8 @@ namespace ProyectoModernizacion
 
         FormRegistros buscarId;
         List<Registro> registros = new List<Registro>();
+
+        List<Registro> registrosUnID = new List<Registro>();
 
         public void setBuscarId(FormRegistros busId)
         {
@@ -30,30 +33,61 @@ namespace ProyectoModernizacion
 
             registros = buscarId.getRegistros();
 
+            string busId = txtID.Text;
 
-            ////////////////////////////////
-            FormTabla tablaE = new FormTabla();
-            
-            string busDni = txtDni.Text;
-            for (int i = 0; i < tablaE.dgvExcel.RowCount; i++)
+            //string [] vector = new string[3];
+
+            //dgvBusqId.ColumnCount=3;
+            for (int i = 0; i < registros.Count; i++)
             {
-                if (busDni == tablaE.dgvExcel.Rows[i].Cells[1].Value.ToString())
+                if (busId == registros[i].ID)
                 {
-                    txtNombre.Text = tablaE.dgvExcel.Rows[i].Cells[2].Value.ToString();
-                    txtHoras.Text = tablaE.dgvExcel.Rows[i].Cells[3].Value.ToString();
+                    registrosUnID.Add(registros[i]);
+                    /*vector[0] = registros[i].ID;
+                    vector[1] = registros[i].Nombre;
+                    vector[2] = registros[i].Horas.ToString();*/
+
+                    //dgvBusqId.DataSource = registros[i].ToString();
+                    //dgvBusqId.Rows.Add(vector);
                 }
+
             }
-            /*
-            (tablaE.dgvExcel.DataSource as DataTable).DefaultView.RowFilter = string.Format("Dni='{0}'", txtDni.Text);
-            */
+            //cargo la lista nueva solo con los reg del id buscado
+            dgvBusqId.DataSource = null;
+            dgvBusqId.DataSource = registrosUnID;
+
+            btnBuscar.Enabled = false;
+
+            btnBuscarNew.Enabled = true;
+            //registrosUnID.Clear();
+
+            //dgvBusqId.DataSource = registros;
 
 
-         }
-            
-
-            
+        }
 
 
+        //De esta forma se va actualizando el dgv cuando se esta buscando
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            /*dgvBusqId.CurrentCell = null;
+            foreach (DataGridViewRow fila in dgvBusqId.Rows)
+            {
+                fila.Visible = fila.Cells["ID"].Value.ToString().ToUpper().Contains(txtID.Text.ToUpper());
+            }*/
+        }
+
+        
+
+        private void btnBuscarNew_Click(object sender, EventArgs e)
+        {
+
+            txtID.Clear();
+            btnBuscar.Enabled = true;
+            btnBuscarNew.Enabled = false;
+            dgvBusqId.Columns.Clear();
+            registrosUnID.Clear();
+        }
     }
 
 }
