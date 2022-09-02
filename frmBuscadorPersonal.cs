@@ -15,9 +15,6 @@ namespace ProyectoModernizacion.recursos
             InitializeComponent();
         }
 
-
-
-
         FormRegistros buscarId;
         List<Registro> registros = new List<Registro>();
 
@@ -35,7 +32,8 @@ namespace ProyectoModernizacion.recursos
             {
                 if (registros[i].ToString() == idAbuscar)
                 {
-
+                    //dgvIdBusq.DataSource = null;
+                    dgvIdBusq.DataSource = registros;
                 }
             }
 
