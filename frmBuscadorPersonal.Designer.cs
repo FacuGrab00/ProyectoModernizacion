@@ -1,5 +1,5 @@
 ﻿
-namespace ProyectoModernizacion.recursos
+namespace ProyectoModernizacion
 {
     partial class frmBuscadorPersonal
     {
@@ -20,7 +20,7 @@ namespace ProyectoModernizacion.recursos
             }
             base.Dispose(disposing);
         }
-        
+
 
         #region Windows Form Designer generated code
 

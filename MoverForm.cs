@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace ProyectoModernizacion.recursos
+namespace ProyectoModernizacion
 {
     public class MoverForm
     {

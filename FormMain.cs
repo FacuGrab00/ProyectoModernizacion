@@ -26,7 +26,7 @@ namespace ProyectoModernizacion
         private void topMenu_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                recursos.MoverForm.MoverFrm(this);
+                MoverForm.MoverFrm(this);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace ProyectoModernizacion
         //UNA SOLA INSTANCIA DEL MODULO TABLA QUE CONTIENE AL FORMULARIO
         private readonly FormTabla moduloTabla = new FormTabla();
         private readonly FormRegistros moduloRegistro = new FormRegistros();
-        private readonly recursos.frmBuscadorPersonal moduloBuscarPersonal = new recursos.frmBuscadorPersonal();
+        private readonly frmBuscadorPersonal moduloBuscarPersonal = new frmBuscadorPersonal();
 
         //OCULTA LOS SUBMENUS
         private void HideSubMenu()
