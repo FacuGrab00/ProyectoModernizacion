@@ -19,6 +19,7 @@ namespace ProyectoModernizacion
         FormTabla tabla = null;
         List<Registro> registros = new List<Registro>();
         List<Registro> registrosProcesados = new List<Registro>();
+        string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelProcesado.xlsx";
 
 
         //RECIBIMOS LA INSTANCIA DE TABLA
@@ -105,9 +106,36 @@ namespace ProyectoModernizacion
             return bandera;
         }
 
-        private void GenerarExcelProcesado()
+        public void GenerarExcelProcesado()
         {
-             
+            //GENERAMOS UNA INSTANCIA DEL EXCEL PRINCIPAL
+            SLDocument excelProcesado = new SLDocument();
+
+            //INDICES (RECORDAR: EXCEL EMPIEZA A CONTAR FILAS Y COLUMNAS A PARTIR DEL "1" Y NO DEL "0")
+            int iR = 2;
+            int iC = 1;
+
+            //RECORREMOS LAS COLUMNAS DEL DGV Y LAS CARGARMOS EN EL EXCEL
+            foreach (DataGridViewColumn column in dgvExcel.Columns)
+            {
+                excelProcesado.SetCellValue(1, iC, column.HeaderText.ToString());
+                iC++;
+            }
+
+            //RECORREMOS EL DGV PARA CARGAR LOS DATOS EN EL EXCEL PRINCIPAL
+            foreach (DataGridViewRow row in dgvExcel.Rows) //ARRANCAMOS RECORRIENDO POR FILAS
+            {
+                iC = 1;
+                foreach (DataGridViewColumn column in dgvExcel.Columns) //RECORREMOS LAS COLUMNAS
+                {
+                    excelProcesado.SetCellValue(iR, iC, row.Cells[iC - 1].Value.ToString()); //CARGAMOS LOS REGISTROS EN EL EXCEL
+                    iC++;
+                }
+                iR++;
+            }
+
+            //AUTOGUARDA EL EXCEL PRINCIPAL EN LA UBICACIÓN DE ESTE PROYECTO.
+            excelProcesado.SaveAs(mainPath);
         }
     }
 

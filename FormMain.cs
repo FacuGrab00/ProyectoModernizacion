@@ -182,6 +182,7 @@ namespace ProyectoModernizacion
         {
             moduloRegistro.ProcesarRegistros();
             moduloRegistro.VolcarRegistros();
+            moduloRegistro.GenerarExcelProcesado();
         }
        
 
