@@ -41,14 +41,11 @@ namespace ProyectoModernizacion
             {
                 this.WindowState = FormWindowState.Maximized;
 
-            }
-            else
-            {
+            }else{
                 if (this.WindowState == FormWindowState.Maximized)
                 {
                     this.WindowState = FormWindowState.Normal;
                 }
-
             }
             btnRestaurar.Visible = true;
             btnMaximizar.Visible = false;
@@ -63,9 +60,7 @@ namespace ProyectoModernizacion
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
-
-            InitializeComponent();      
+            this.WindowState = FormWindowState.Minimized;      
 
         }
 
@@ -160,11 +155,7 @@ namespace ProyectoModernizacion
         }
 
 
-        //CIERRA LA APLICACIÓN
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
 
         //DESPLIEGA SUBMENU Y ABRE EL MODULO TABLA

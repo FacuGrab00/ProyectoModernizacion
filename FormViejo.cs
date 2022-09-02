@@ -17,8 +17,7 @@ namespace ProyectoModernizacion
     public partial class FormViejo : Form
     {
 
-        //Mover panel
-        int m, mx, my;
+        
 
         public FormViejo()
         {

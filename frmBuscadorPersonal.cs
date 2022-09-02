@@ -27,25 +27,19 @@ namespace ProyectoModernizacion.recursos
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            string idAbuscar = txtID.Text; 
 
             registros = buscarId.getRegistros();
 
-
-            ////////////////////////////////
-            FormTabla tablaE = new FormTabla();
-            
-            string busDni = txtDni.Text;
-            for (int i = 0; i < tablaE.dgvExcel.RowCount; i++)
+            for (int i = 0; i < registros.Count; i++)
             {
-                if (busDni == tablaE.dgvExcel.Rows[i].Cells[1].Value.ToString())
+                if (registros[i].ToString() == idAbuscar)
                 {
-                    txtNombre.Text = tablaE.dgvExcel.Rows[i].Cells[2].Value.ToString();
-                    txtHoras.Text = tablaE.dgvExcel.Rows[i].Cells[3].Value.ToString();
+
                 }
             }
-            /*
-            (tablaE.dgvExcel.DataSource as DataTable).DefaultView.RowFilter = string.Format("Dni='{0}'", txtDni.Text);
-            */
+
+            
 
 
          }

@@ -197,7 +197,6 @@ namespace ProyectoModernizacion
             this.btnClose.Size = new System.Drawing.Size(100, 50);
             this.btnClose.TabIndex = 7;
             this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // sideBar
             // 
