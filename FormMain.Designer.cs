@@ -50,9 +50,11 @@ namespace ProyectoModernizacion
             this.panelMain = new System.Windows.Forms.Panel();
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
+            this.BtnProcesarArchivo = new System.Windows.Forms.Button();
             this.topMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.sideBar.SuspendLayout();
+            this.subMenuProcesar.SuspendLayout();
             this.subMenuTabla.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,6 +257,7 @@ namespace ProyectoModernizacion
             // subMenuProcesar
             // 
             this.subMenuProcesar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
+            this.subMenuProcesar.Controls.Add(this.BtnProcesarArchivo);
             this.subMenuProcesar.Dock = System.Windows.Forms.DockStyle.Top;
             this.subMenuProcesar.Location = new System.Drawing.Point(0, 200);
             this.subMenuProcesar.Margin = new System.Windows.Forms.Padding(2);
@@ -328,6 +331,28 @@ namespace ProyectoModernizacion
             this.panelMain.Size = new System.Drawing.Size(990, 680);
             this.panelMain.TabIndex = 5;
             // 
+            // BtnProcesarArchivo
+            // 
+            this.BtnProcesarArchivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
+            this.BtnProcesarArchivo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnProcesarArchivo.FlatAppearance.BorderSize = 0;
+            this.BtnProcesarArchivo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(139)))));
+            this.BtnProcesarArchivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            this.BtnProcesarArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProcesarArchivo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnProcesarArchivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnProcesarArchivo.Image = global::ProyectoModernizacion.Properties.Resources.file_export_solid_24;
+            this.BtnProcesarArchivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnProcesarArchivo.Location = new System.Drawing.Point(0, 0);
+            this.BtnProcesarArchivo.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnProcesarArchivo.Name = "BtnProcesarArchivo";
+            this.BtnProcesarArchivo.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.BtnProcesarArchivo.Size = new System.Drawing.Size(250, 50);
+            this.BtnProcesarArchivo.TabIndex = 3;
+            this.BtnProcesarArchivo.Text = "Procesar Archivo";
+            this.BtnProcesarArchivo.UseVisualStyleBackColor = false;
+            this.BtnProcesarArchivo.Click += new System.EventHandler(this.BtnProcesarArchivo_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -343,6 +368,7 @@ namespace ProyectoModernizacion
             this.topMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.sideBar.ResumeLayout(false);
+            this.subMenuProcesar.ResumeLayout(false);
             this.subMenuTabla.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -373,7 +399,7 @@ namespace ProyectoModernizacion
         private System.Windows.Forms.Button btnRestaurar;
 
         private System.Windows.Forms.Button BtnProcesarRegistros;
-
+        private System.Windows.Forms.Button BtnProcesarArchivo;
     }
 }
 
