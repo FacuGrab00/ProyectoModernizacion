@@ -48,10 +48,10 @@ namespace ProyectoModernizacion
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(523, 40);
+            this.btnBuscar.Location = new System.Drawing.Point(654, 50);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(90, 30);
+            this.btnBuscar.Size = new System.Drawing.Size(112, 38);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -62,22 +62,24 @@ namespace ProyectoModernizacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(155, 40);
+            this.label2.Location = new System.Drawing.Point(194, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 27);
+            this.label2.Size = new System.Drawing.Size(51, 34);
             this.label2.TabIndex = 2;
             this.label2.Text = "ID:";
             // 
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.txtID.Location = new System.Drawing.Point(199, 40);
+            this.txtID.Location = new System.Drawing.Point(249, 50);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.PlaceholderText = "Ingrese el ID buscado...";
-            this.txtID.Size = new System.Drawing.Size(320, 30);
+            this.txtID.Size = new System.Drawing.Size(399, 34);
             this.txtID.TabIndex = 3;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged_1);
+           
             // 
             // btnBuscarNew
             // 
@@ -86,10 +88,10 @@ namespace ProyectoModernizacion
             this.btnBuscarNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarNew.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBuscarNew.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarNew.Location = new System.Drawing.Point(617, 40);
+            this.btnBuscarNew.Location = new System.Drawing.Point(771, 50);
             this.btnBuscarNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarNew.Name = "btnBuscarNew";
-            this.btnBuscarNew.Size = new System.Drawing.Size(150, 30);
+            this.btnBuscarNew.Size = new System.Drawing.Size(188, 38);
             this.btnBuscarNew.TabIndex = 9;
             this.btnBuscarNew.Text = "Buscar Nuevo";
             this.btnBuscarNew.UseVisualStyleBackColor = false;
@@ -126,7 +128,7 @@ namespace ProyectoModernizacion
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBusqId.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBusqId.EnableHeadersVisualStyles = false;
-            this.dgvBusqId.Location = new System.Drawing.Point(50, 80);
+            this.dgvBusqId.Location = new System.Drawing.Point(62, 100);
             this.dgvBusqId.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBusqId.Name = "dgvBusqId";
             this.dgvBusqId.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -140,15 +142,15 @@ namespace ProyectoModernizacion
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgvBusqId.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBusqId.RowTemplate.Height = 33;
-            this.dgvBusqId.Size = new System.Drawing.Size(890, 500);
+            this.dgvBusqId.Size = new System.Drawing.Size(1112, 625);
             this.dgvBusqId.TabIndex = 10;
             // 
             // frmBuscadorPersonal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(990, 680);
+            this.ClientSize = new System.Drawing.Size(1238, 850);
             this.Controls.Add(this.dgvBusqId);
             this.Controls.Add(this.btnBuscarNew);
             this.Controls.Add(this.btnBuscar);
