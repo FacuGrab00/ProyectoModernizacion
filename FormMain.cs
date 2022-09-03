@@ -28,12 +28,11 @@ namespace ProyectoModernizacion
             if (e.Button == MouseButtons.Left)
                 MoverForm.MoverFrm(this);
         }
-
+        //FUNCIONALIDADES DE VENTANA
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
@@ -52,14 +51,12 @@ namespace ProyectoModernizacion
             btnRestaurar.Visible = true;
             btnMaximizar.Visible = false;
         }
-
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             btnRestaurar.Visible = false;
             btnMaximizar.Visible = true;
         }
-
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -106,32 +103,24 @@ namespace ProyectoModernizacion
             fh.Show();
         }
 
+
         //DESENCADENA EL PROCESO PARA IMPORTAR UN EXCEL
         private void BtnAbrir_Click(object sender, EventArgs e)
         {
-            //MENSAJE DE ADVERTENCIA
-            MessageBox.Show("IMPORTANTE: Al momento de importar el EXCEL, Asegurese que las COLUMNAS se encuentran en la FILA 1 y no hay ESPACIOS en blanco entre las FILAS");
-
             //ABRIMOS LA VENTANA DE BUSQUEDA PARA IMPORTAR EL EXCEL
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 //GUARDAMOS LA DIRECCIÓN DEL EXCEL A IMPORTAR
                 moduloTabla.FilePath = openFileDialog1.FileName;
-                //REALIZAMOS LA LECTURA DEL EXCEL
-                moduloTabla.ImportarExcel();
-                moduloTabla.CrearCopia();
+                moduloTabla.Importar();
             }
-            else
-            {
-                //EN CASO DE NO REALIZAR LA IMPORTACIÓN
-            }
+            else{/*EN CASO DE NO REALIZAR LA IMPORTACIÓN*/}
         }
 
         //FUNCIÓN PARA PASAR EN MAYUSCULAS LOS NOMBRES Y APELLIDOS (SIN USO)
         private string PasarMayuscula(String nombreApellido)
         {
             nombreApellido = nombreApellido.UpperFirstChar();
-
             return nombreApellido;
         }
 
@@ -141,13 +130,9 @@ namespace ProyectoModernizacion
             if(saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 moduloTabla.SavePath = saveFileDialog1.FileName;
-                moduloTabla.ExportarExcel();
-                MessageBox.Show("Se guardó con exito!");
+                moduloTabla.ExportarCambios();
             }
-            else
-            {
-                //EN CASO DE NO REALIZAR EL GUARDADO
-            }
+            else{/* EN CASO DE NO REALIZAR EL GUARDADO */}
 
             
         }
@@ -168,19 +153,12 @@ namespace ProyectoModernizacion
 
         private void BtnProcesar_Click(object sender, EventArgs e)
         {
-            //SE ENVIA LA INSTANCIA DEL MODULO TABLA AL MODULO REGISTROS PARA ACCEDER A SU INTERFAZ.
-            moduloRegistro.Tabla = moduloTabla;
-            //SI EXISTE UN ARCHIVO EXCEL PREVIO SE PROCESAN LOS REGISTROS.
-            if (File.Exists(moduloTabla.MainPath))
-                moduloRegistro.GenerarRegistros();
-            
             AbrirFormHijo(moduloRegistro);
             ShowSubMenu(subMenuProcesar);
         }
 
         private void BtnProcesarArchivo_Click(object sender, EventArgs e)
         {
-            moduloRegistro.ProcesarRegistros();
             moduloRegistro.VolcarRegistros();
         }
        
