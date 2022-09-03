@@ -34,7 +34,7 @@ namespace ProyectoModernizacion
         public void GenerarRegistros()
         {
             //INSTANCIAMOS EL EXCEL PRINCIPAL
-            SLDocument excelPrincipal = new SLDocument(tabla.MainPath);
+            SLDocument excelPrincipal = new SLDocument(new ManejadorExcel().MainPath);
             Registro registro;
             int iRow = 2;
             if(excelPrincipal != null)
