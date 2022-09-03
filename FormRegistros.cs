@@ -16,7 +16,7 @@ namespace ProyectoModernizacion
             InitializeComponent();
         }
 
-        ManejadorExcel manejadorExcel = new ManejadorExcel();
+        ManejadorExcel manejadorExcel;
         List<Registro> registrosProcesados = new List<Registro>();
         string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelProcesado.xlsx";
 
@@ -29,6 +29,7 @@ namespace ProyectoModernizacion
         //PROCESAR REGISTROS
         public void ProcesarRegistros()
         {
+            manejadorExcel = new ManejadorExcel();
             Registro regActual;
             Registro regAnterior;
             TimeSpan hora;
@@ -40,6 +41,13 @@ namespace ProyectoModernizacion
                 {
                     hora = regActual.Horario - regAnterior.Horario;
                     regActual.Horas = hora;
+                    registrosProcesados.Add(regActual);
+                }
+
+                if (CasoDobleSalida(regActual, regAnterior))
+                {
+                    regActual.Observacion = "No se marcó la entrada";
+                    regActual.Horas = TimeSpan.Zero;
                     registrosProcesados.Add(regActual);
                 }
             }
@@ -61,6 +69,28 @@ namespace ProyectoModernizacion
                 if (regActual.Horario.Day.Equals(regAnterior.Horario.Day))
                 {
                     if (regActual.Estado == "Registro de salida" && regAnterior.Estado == "Registro de entrada")
+                    {
+                        bandera = true;
+                    }
+                }
+            }
+
+            return bandera;
+        }
+
+        private bool CasoDobleEntrada(Registro regActual, Registro regAnterior)
+        {
+            return true;
+        }
+
+        private bool CasoDobleSalida(Registro regActual, Registro regAnterior)
+        {
+            bool bandera = false;
+            if (regActual.ID.Equals(regAnterior.ID))
+            {
+                if (!regActual.Horario.Day.Equals(regAnterior.Horario.Day))
+                {
+                    if (regActual.Estado == "Registro de salida" && regAnterior.Estado == "Registro de salida")
                     {
                         bandera = true;
                     }

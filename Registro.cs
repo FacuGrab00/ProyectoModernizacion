@@ -11,6 +11,7 @@ namespace ProyectoModernizacion
         string nombre;
         string estado;
         TimeSpan horas;
+        string observacion = "";
 
         public Registro(string id, string nombre, DateTime horario, string estado)
         {
@@ -33,5 +34,6 @@ namespace ProyectoModernizacion
         public string Nombre { get => nombre; }
         public string Estado { get => estado; }
         public TimeSpan Horas { get => horas; set => horas = value; }
+        public string Observacion { get => observacion; set => observacion = value; }
     }
 }
