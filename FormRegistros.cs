@@ -78,10 +78,10 @@ namespace ProyectoModernizacion
             return bandera;
         }
 
-        private bool CasoDobleEntrada(Registro regActual, Registro regAnterior)
-        {
-            return true;
-        }
+        //private bool CasoDobleEntrada(Registro regActual, Registro regAnterior)
+        //{
+        //    return true;
+        //}
 
         private bool CasoDobleSalida(Registro regActual, Registro regAnterior)
         {
