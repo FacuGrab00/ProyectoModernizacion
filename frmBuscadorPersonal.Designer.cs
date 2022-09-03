@@ -30,6 +30,9 @@ namespace ProyectoModernizacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -40,66 +43,119 @@ namespace ProyectoModernizacion
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(668, 55);
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(55)))), ((int)(((byte)(84)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Location = new System.Drawing.Point(523, 40);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(108, 31);
+            this.btnBuscar.Size = new System.Drawing.Size(90, 30);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(195, 52);
+            this.label2.Location = new System.Drawing.Point(155, 40);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 32);
+            this.label2.Size = new System.Drawing.Size(40, 27);
             this.label2.TabIndex = 2;
             this.label2.Text = "ID:";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(249, 55);
+            this.txtID.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.txtID.Location = new System.Drawing.Point(199, 40);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(402, 31);
+            this.txtID.PlaceholderText = "Ingrese el ID buscado...";
+            this.txtID.Size = new System.Drawing.Size(320, 30);
             this.txtID.TabIndex = 3;
             // 
             // btnBuscarNew
             // 
-            this.btnBuscarNew.Location = new System.Drawing.Point(782, 55);
+            this.btnBuscarNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            this.btnBuscarNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(55)))), ((int)(((byte)(84)))));
+            this.btnBuscarNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarNew.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscarNew.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarNew.Location = new System.Drawing.Point(617, 40);
+            this.btnBuscarNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarNew.Name = "btnBuscarNew";
-            this.btnBuscarNew.Size = new System.Drawing.Size(187, 31);
+            this.btnBuscarNew.Size = new System.Drawing.Size(150, 30);
             this.btnBuscarNew.TabIndex = 9;
             this.btnBuscarNew.Text = "Buscar Nuevo";
-            this.btnBuscarNew.UseVisualStyleBackColor = true;
+            this.btnBuscarNew.UseVisualStyleBackColor = false;
             this.btnBuscarNew.Click += new System.EventHandler(this.btnBuscarNew_Click);
             // 
             // dgvBusqId
             // 
-            this.dgvBusqId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvBusqId.AllowUserToAddRows = false;
+            this.dgvBusqId.AllowUserToResizeRows = false;
+            this.dgvBusqId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvBusqId.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBusqId.Location = new System.Drawing.Point(12, 113);
+            this.dgvBusqId.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBusqId.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBusqId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBusqId.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvBusqId.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBusqId.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvBusqId.ColumnHeadersHeight = 29;
+            this.dgvBusqId.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBusqId.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBusqId.EnableHeadersVisualStyles = false;
+            this.dgvBusqId.Location = new System.Drawing.Point(50, 80);
+            this.dgvBusqId.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBusqId.Name = "dgvBusqId";
+            this.dgvBusqId.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvBusqId.RowHeadersVisible = false;
             this.dgvBusqId.RowHeadersWidth = 62;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvBusqId.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBusqId.RowTemplate.Height = 33;
-            this.dgvBusqId.Size = new System.Drawing.Size(1206, 345);
+            this.dgvBusqId.Size = new System.Drawing.Size(890, 500);
             this.dgvBusqId.TabIndex = 10;
             // 
             // frmBuscadorPersonal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(87)))));
-            this.ClientSize = new System.Drawing.Size(1230, 470);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
+            this.ClientSize = new System.Drawing.Size(990, 680);
             this.Controls.Add(this.dgvBusqId);
             this.Controls.Add(this.btnBuscarNew);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscadorPersonal";
             this.Text = "frmBuscadorPersonal";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqId)).EndInit();
