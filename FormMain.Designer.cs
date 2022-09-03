@@ -398,7 +398,6 @@ namespace ProyectoModernizacion
         private System.Windows.Forms.Button btnMaximizar;
         private System.Windows.Forms.Button btnRestaurar;
 
-        private System.Windows.Forms.Button BtnProcesarRegistros;
         private System.Windows.Forms.Button BtnProcesarArchivo;
     }
 }
