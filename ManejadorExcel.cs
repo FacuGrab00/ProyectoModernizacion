@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SpreadsheetLight;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ProyectoModernizacion
 {
@@ -15,6 +16,13 @@ namespace ProyectoModernizacion
         List<Registro> registros = new List<Registro>();    //LISTA DE REGISTROS PARA MANIPULAR.
         List<String> columnas = new List<string>();     //LISTA DE COLUMNAS
         bool loadedColumns = false; //BANDERA ME INDICA SI YA SE CARGARON LAS COLUMNAS
+
+        public ManejadorExcel()
+        {
+            //CARGA EL EXCEL PRINCIPAL EN CASO DE HABER EXISTIDO UN PRIMER EXCEL IMPORTADO.
+            if (File.Exists(mainPath))
+                ImportarExcel();
+        }
 
         //GETTERS Y SETTERS
         public string MainPath { get => mainPath; }
@@ -30,7 +38,7 @@ namespace ProyectoModernizacion
             AutoGuardado();
         }
 
-        public void ImportarExcel()
+        private void ImportarExcel()
         {
             //CREAMOS UNA INSTANCIA PARA MANEJAR EL EXCEL IMPORTADO
             excelPrincipal = new SLDocument(mainPath);

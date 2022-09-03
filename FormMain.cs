@@ -153,21 +153,13 @@ namespace ProyectoModernizacion
 
         private void BtnProcesar_Click(object sender, EventArgs e)
         {
-            //SE ENVIA LA INSTANCIA DEL MODULO TABLA AL MODULO REGISTROS PARA ACCEDER A SU INTERFAZ.
-            moduloRegistro.Tabla = moduloTabla;
-            //SI EXISTE UN ARCHIVO EXCEL PREVIO SE PROCESAN LOS REGISTROS.
-            if (File.Exists(new ManejadorExcel().MainPath))
-                moduloRegistro.GenerarRegistros();
-            
             AbrirFormHijo(moduloRegistro);
             ShowSubMenu(subMenuProcesar);
         }
 
         private void BtnProcesarArchivo_Click(object sender, EventArgs e)
         {
-            moduloRegistro.ProcesarRegistros();
             moduloRegistro.VolcarRegistros();
-            moduloRegistro.GenerarExcelProcesado();
         }
        
 

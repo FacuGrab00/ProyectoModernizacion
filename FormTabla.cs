@@ -29,14 +29,8 @@ namespace ProyectoModernizacion
             //CARGA EL EXCEL PRINCIPAL EN CASO DE HABER EXISTIDO UN PRIMER EXCEL IMPORTADO.
             if (File.Exists(manejadorExcel.MainPath))
             {
-                Cargar();
+                CargarGrid();
             }
-        }
-
-        private void Cargar()
-        {
-            manejadorExcel.ImportarExcel();
-            CargarGrid();
         }
 
         public void Importar()
