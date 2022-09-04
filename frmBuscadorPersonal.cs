@@ -24,8 +24,37 @@ namespace ProyectoModernizacion
 
         List<Registro> registrosUnID = new List<Registro>();
 
+
+        private void marcarFecha()
+        {
+            DateTime [] fechasTrabajadas = new DateTime[registrosUnID.Count];
+
+            for (int i = 0; i < registrosUnID.Count; i++)
+            {
+                fechasTrabajadas[i] = registrosUnID[i].Horario;
+                
+            }
+
+            calendario.BoldedDates = fechasTrabajadas;
+        }
+
         //creo una nueva lista para guardar los registros por una fecha
         List<Registro> registrosPorFecha = new List<Registro>();
+
+        public int cantidadDiasTrab()
+        {
+            int contador=0;
+            for (int i = 0; i < registrosUnID.Count; i++)
+            {
+                if (registrosUnID[i].ID == txtID.Text)
+                {
+                    contador++;   
+                }
+            }
+            
+            return contador;
+        }
+       
 
         public void setBuscarId(FormRegistros busId)
         {
@@ -70,17 +99,10 @@ namespace ProyectoModernizacion
                 dgvBusqId.DataSource = null;
                 dgvBusqId.DataSource = registrosUnID;
 
-                //cBoxFechas.DataSource = registrosUnID[1].ToString();
-                
-                //cargo el comboBox con las fechas de los registros encontrados
-                for (int i = 0; i < registrosUnID.Count; i++)
-                {
-                    //cBoxFechas.Items.Add(dgvBusqId.Rows[i].Cells[1].Value);
-                    cBoxFechas.Items.Add(registrosUnID[i].Horario);
-                }
 
                 //Variable horas total
                 TimeSpan hrsTotales = new TimeSpan();
+                string nomIDBusq;
 
                 for (int i = 0; i < registrosUnID.Count; i++)
                 {
@@ -89,6 +111,11 @@ namespace ProyectoModernizacion
 
                 lblHrsTrab.Text = hrsTotales.ToString();
 
+                lblID.Text = txtID.Text;
+
+
+                lblNomApe.Text = registrosUnID[0].Nombre.ToString();
+                
             }
             else
             {
@@ -101,9 +128,14 @@ namespace ProyectoModernizacion
 
             //habilito el boton buscar nuevo
             btnBuscarNew.Enabled = true;
+
+            //Muestro la cantidad de dias trabajados
+            lblDiasTrab.Text = Convert.ToString(cantidadDiasTrab());
             
-            
-            
+           
+
+            marcarFecha();
+
             //registrosUnID.Clear();
             //dgvBusqId.DataSource = registros;
         }
@@ -120,8 +152,15 @@ namespace ProyectoModernizacion
             dgvBusqId.Columns.Clear();
             //limpio la lista 
             registrosUnID.Clear();
-            //limpio el combo box
-            cBoxFechas.Items.Clear();
+            //limpio los labels de Datos Personales
+            lblDiasTrab.Text = "";
+            lblNomApe.Text = "";
+            lblID.Text = "";
+
+
+
+            calendario.BoldedDates = null;
+            
         }
 
         //De esta forma se va actualizando el dgv cuando se esta buscando
@@ -157,14 +196,12 @@ namespace ProyectoModernizacion
 
 
             TimeSpan hrsTotales = new TimeSpan();
-            string hrs = "";
+            
             foreach (DataGridViewRow row in dgvBusqId.Rows)
             {
 
                 //string codigo = Convert.ToString(row.Cells["Codigo"].Value);
-                hrs = Convert.ToString(row.Cells["Horas"].Value);
-                
-
+                hrsTotales += (TimeSpan)row.Cells["Horas"].Value;
             }
 
             //Variable horas total
@@ -176,7 +213,7 @@ namespace ProyectoModernizacion
             }*/
            
 
-            lblHrsTrab.Text = hrs.ToString();
+            lblHrsTrab.Text = hrsTotales.ToString();
 
             
 
