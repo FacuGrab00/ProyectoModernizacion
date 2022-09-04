@@ -115,49 +115,56 @@ namespace ProyectoModernizacion
             int j = i + 1;
             Registro regActual;
             Registro regSiguiente;
+
             while(i < manejadorExcel.Registros.Count)
             {
-                
                 regActual = manejadorExcel.Registros[i];    //regActual ARRANCA SIENDO EL PRIMER REGISTRO DE LA LISTA
-                regSiguiente = manejadorExcel.Registros[j];     //regSiguiente ES EL REGISTRO SIGUIENTE DE regActual
 
-                //EL USUARIO NO REGISTRÓ LA ENTRADA
-                if (SinMarcarEntrada(regActual))
+                if (j >= manejadorExcel.Registros.Count)
                 {
-                    regActual.Observacion = "No se marcó la entrada";
+                    //EL regSiguiente APUNTA AL ULTIMO REGISTRO DE LA LISTA
+                    regActual.Observacion = "No se marcó  la salida";
                     registrosProcesados.Add(regActual);
-                    i++; j++;
+                    i++;
                 }
 
-                //EL USUARIO REGISTRÓ MAS DE UNA ENTRADA
-                if(DobleEntrada(regActual, regSiguiente))
+                while (j < manejadorExcel.Registros.Count)
                 {
-
-                    if (!(j >= manejadorExcel.Registros.Count - 1))
-                        j++; //regSiguiente AVANZA EN BUSCA DE LA MARCA DE SALIDA
-                    else
-                    {
-                        //EL regSiguiente APUNTA AL ULTIMO REGISTRO DE LA LISTA
-                        i = j;
-                        regActual.Observacion = "No se marcó  la salida";
-                        registrosProcesados.Add(regActual);
-                        i++;
-                    }
-                }
+                    regSiguiente = manejadorExcel.Registros[j];     //regSiguiente ES EL REGISTRO SIGUIENTE DE regActual
                     
-                //EL USUARIO NO MARCÓ LA SALIDA
-                if(SinMarcarSalida(regActual, regSiguiente))
-                {
-                    regActual.Observacion = "No se marcó la salida";
-                    i = j; j++;
-                }
+                    //EL USUARIO NO REGISTRÓ LA ENTRADA
+                    if (SinMarcarEntrada(regActual))
+                    {
+                        regActual.Observacion = "No se marcó la entrada";
+                        registrosProcesados.Add(regActual);
+                        i++; j++;
+                        break;
+                    }
 
-                //EL USUARIO MARCÓ ENTRADA Y SALIDA
-                if (CasoCorrecto(regActual, regSiguiente))
-                {
-                    regActual.Horas = regSiguiente.Horario - regActual.Horario;
-                    registrosProcesados.Add(regActual);
-                    i = j + 1; j = i + 1;
+                    //EL USUARIO REGISTRÓ MAS DE UNA ENTRADA
+                    if (DobleEntrada(regActual, regSiguiente))
+                    {
+                        j++;
+                        break;
+                    }
+
+                    //EL USUARIO NO MARCÓ LA SALIDA
+                    if (SinMarcarSalida(regActual, regSiguiente))
+                    {
+                        regActual.Observacion = "No se marcó la salida";
+                        registrosProcesados.Add(regActual);
+                        i = j; j++;
+                        break;
+                    }
+
+                    //EL USUARIO MARCÓ ENTRADA Y SALIDA
+                    if (CasoCorrecto(regActual, regSiguiente))
+                    {
+                        regActual.Horas = regSiguiente.Horario - regActual.Horario;
+                        registrosProcesados.Add(regActual);
+                        i = j + 1; j = i + 1;
+                        break;
+                    }
                 }
             }
         }

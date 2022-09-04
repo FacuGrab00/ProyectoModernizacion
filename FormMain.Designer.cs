@@ -44,13 +44,13 @@ namespace ProyectoModernizacion
             this.subMenu2 = new System.Windows.Forms.Panel();
             this.BtnBuscador = new System.Windows.Forms.Button();
             this.subMenuProcesar = new System.Windows.Forms.Panel();
+            this.BtnProcesarArchivo = new System.Windows.Forms.Button();
             this.BtnProcesar = new System.Windows.Forms.Button();
             this.subMenuTabla = new System.Windows.Forms.Panel();
             this.BtnTabla = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
-            this.BtnProcesarArchivo = new System.Windows.Forms.Button();
             this.topMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.sideBar.SuspendLayout();
@@ -266,6 +266,28 @@ namespace ProyectoModernizacion
             this.subMenuProcesar.TabIndex = 0;
             this.subMenuProcesar.Visible = false;
             // 
+            // BtnProcesarArchivo
+            // 
+            this.BtnProcesarArchivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
+            this.BtnProcesarArchivo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnProcesarArchivo.FlatAppearance.BorderSize = 0;
+            this.BtnProcesarArchivo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(139)))));
+            this.BtnProcesarArchivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            this.BtnProcesarArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProcesarArchivo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnProcesarArchivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnProcesarArchivo.Image = global::ProyectoModernizacion.Properties.Resources.file_export_solid_24;
+            this.BtnProcesarArchivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnProcesarArchivo.Location = new System.Drawing.Point(0, 0);
+            this.BtnProcesarArchivo.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnProcesarArchivo.Name = "BtnProcesarArchivo";
+            this.BtnProcesarArchivo.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.BtnProcesarArchivo.Size = new System.Drawing.Size(250, 50);
+            this.BtnProcesarArchivo.TabIndex = 3;
+            this.BtnProcesarArchivo.Text = "Procesar Archivo";
+            this.BtnProcesarArchivo.UseVisualStyleBackColor = false;
+            this.BtnProcesarArchivo.Click += new System.EventHandler(this.BtnProcesarArchivo_Click);
+            // 
             // BtnProcesar
             // 
             this.BtnProcesar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(55)))), ((int)(((byte)(84)))));
@@ -330,28 +352,6 @@ namespace ProyectoModernizacion
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(990, 680);
             this.panelMain.TabIndex = 5;
-            // 
-            // BtnProcesarArchivo
-            // 
-            this.BtnProcesarArchivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
-            this.BtnProcesarArchivo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnProcesarArchivo.FlatAppearance.BorderSize = 0;
-            this.BtnProcesarArchivo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(139)))));
-            this.BtnProcesarArchivo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
-            this.BtnProcesarArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnProcesarArchivo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnProcesarArchivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnProcesarArchivo.Image = global::ProyectoModernizacion.Properties.Resources.file_export_solid_24;
-            this.BtnProcesarArchivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProcesarArchivo.Location = new System.Drawing.Point(0, 0);
-            this.BtnProcesarArchivo.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnProcesarArchivo.Name = "BtnProcesarArchivo";
-            this.BtnProcesarArchivo.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.BtnProcesarArchivo.Size = new System.Drawing.Size(250, 50);
-            this.BtnProcesarArchivo.TabIndex = 3;
-            this.BtnProcesarArchivo.Text = "Procesar Archivo";
-            this.BtnProcesarArchivo.UseVisualStyleBackColor = false;
-            this.BtnProcesarArchivo.Click += new System.EventHandler(this.BtnProcesarArchivo_Click);
             // 
             // FormMain
             // 
