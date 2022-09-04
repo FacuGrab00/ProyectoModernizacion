@@ -24,6 +24,9 @@ namespace ProyectoModernizacion
 
         List<Registro> registrosUnID = new List<Registro>();
 
+        //creo una nueva lista para guardar los registros por una fecha
+        List<Registro> registrosPorFecha = new List<Registro>();
+
         public void setBuscarId(FormRegistros busId)
         {
             buscarId = busId;
@@ -60,11 +63,32 @@ namespace ProyectoModernizacion
 
             }
 
+            //si contiene elementos muestro en el DataGridview si no muestro un mensaje
             if (registrosUnID.Any())
             {
                 //cargo la lista nueva solo con los reg del id buscado
                 dgvBusqId.DataSource = null;
                 dgvBusqId.DataSource = registrosUnID;
+
+                //cBoxFechas.DataSource = registrosUnID[1].ToString();
+                
+                //cargo el comboBox con las fechas de los registros encontrados
+                for (int i = 0; i < registrosUnID.Count; i++)
+                {
+                    //cBoxFechas.Items.Add(dgvBusqId.Rows[i].Cells[1].Value);
+                    cBoxFechas.Items.Add(registrosUnID[i].Horario);
+                }
+
+                //Variable horas total
+                TimeSpan hrsTotales = new TimeSpan();
+
+                for (int i = 0; i < registrosUnID.Count; i++)
+                {
+                    hrsTotales += registrosUnID[i].Horas;
+                }
+
+                lblHrsTrab.Text = hrsTotales.ToString();
+
             }
             else
             {
@@ -96,11 +120,14 @@ namespace ProyectoModernizacion
             dgvBusqId.Columns.Clear();
             //limpio la lista 
             registrosUnID.Clear();
+            //limpio el combo box
+            cBoxFechas.Items.Clear();
         }
 
         //De esta forma se va actualizando el dgv cuando se esta buscando
         private void txtID_TextChanged_1(object sender, EventArgs e)
         {
+
             if (txtID.Text == "")
             {
                 btnBuscar.Enabled = false;
@@ -115,6 +142,75 @@ namespace ProyectoModernizacion
             {
                 fila.Visible = fila.Cells["ID"].Value.ToString().ToUpper().Contains(txtID.Text.ToUpper());
             }*/
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            lblHrsTrab.Text = "";
+
+            //variables para filtrar registros
+            DateTime desde = dtpDesde.Value;
+            DateTime hasta = dtpHasta.Value;
+
+            dgvBusqId.DataSource = null;
+            dgvBusqId.DataSource = registrosUnID.Where(w => w.Horario > desde && w.Horario < hasta).ToList();
+
+
+            TimeSpan hrsTotales = new TimeSpan();
+            string hrs = "";
+            foreach (DataGridViewRow row in dgvBusqId.Rows)
+            {
+
+                //string codigo = Convert.ToString(row.Cells["Codigo"].Value);
+                hrs = Convert.ToString(row.Cells["Horas"].Value);
+                
+
+            }
+
+            //Variable horas total
+            //TimeSpan hrsTotales = new TimeSpan();
+
+            /*for (int i = 0; i < registrosUnID.Count; i++)
+            {
+                hrsTotales += registrosUnID[i].Horas;
+            }*/
+           
+
+            lblHrsTrab.Text = hrs.ToString();
+
+            
+
+            //creo una variable para guardar el texto del combobox
+            //string fechFilter = cBoxFechas.Text;
+
+            //Recorro la lista de los registros de una persona buscada
+            /*for (int i = 0; i < registrosUnID.Count; i++)
+            {
+                //comparo el txt del combobox con la columna Horarios si lo encuentra lo guarda en una nueva lista
+                if (fechFilter == registrosUnID[i].Horario.ToString())
+                {
+                    registrosPorFecha.Add(registrosUnID[i]);
+                }
+            }
+            //dgvBusqId.Columns.Clear();
+            dgvBusqId.DataSource = null;
+            dgvBusqId.DataSource = registrosPorFecha;*/
+        }
+
+        //Evento cuando se cambia la fecha del comboBox
+        private void cBoxFechas_TextChanged(object sender, EventArgs e)
+        {
+            //se limpia la lista y el DGV cuando se cambia de fecha
+            registrosPorFecha.Clear();
+            dgvBusqId.Columns.Clear();
+
+        }
+
+        //se limpia el label donde se muestra la hora 
+        //cuando se cambia de fecha
+        private void dtpDesde_ValueChanged(object sender, EventArgs e)
+        {
+            lblHrsTrab.Text = "";
         }
     }
 
