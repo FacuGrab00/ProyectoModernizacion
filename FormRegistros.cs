@@ -17,7 +17,7 @@ namespace ProyectoModernizacion
         }
 
         ManejadorExcel manejadorExcel;
-        List<Registro> registrosProcesados = new List<Registro>();
+        List<Registro> registrosProcesados;
         string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelProcesado.xlsx";
 
         //RECIBIMOS LA INSTANCIA DE TABLA
@@ -111,6 +111,7 @@ namespace ProyectoModernizacion
         public void Procesar_Registros()
         {
             manejadorExcel = new ManejadorExcel();
+            registrosProcesados = new List<Registro>();
             int i = 0;
             int j = i + 1;
             Registro regActual;
