@@ -24,6 +24,7 @@ namespace ProyectoModernizacion
                 ImportarExcel();
         }
 
+        
         //GETTERS Y SETTERS
         public string MainPath { get => mainPath; }
         public List<Registro> Registros { get => registros; }

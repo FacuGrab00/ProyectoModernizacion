@@ -226,6 +226,10 @@ namespace ProyectoModernizacion
             manejadorExcel.ExportarExcel(mainPath, dgvExcel);
         }
 
+        private void FormRegistros_Load(object sender, EventArgs e)
+        {
+            VolcarRegistros();
+        }
     }//FIN CLASE
 
 }

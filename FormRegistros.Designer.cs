@@ -90,6 +90,7 @@ namespace ProyectoModernizacion
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormRegistros";
             this.Text = "FormRegistros";
+            this.Load += new System.EventHandler(this.FormRegistros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExcel)).EndInit();
             this.ResumeLayout(false);
 
