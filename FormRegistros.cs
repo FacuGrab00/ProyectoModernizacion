@@ -14,6 +14,7 @@ namespace ProyectoModernizacion
         public FormRegistros()
         {
             InitializeComponent();
+            Procesar_Registros();
         }
 
         ManejadorExcel manejadorExcel;
@@ -228,7 +229,7 @@ namespace ProyectoModernizacion
 
         private void FormRegistros_Load(object sender, EventArgs e)
         {
-            VolcarRegistros();
+            dgvExcel.DataSource = registrosProcesados;
         }
     }//FIN CLASE
 
