@@ -35,6 +35,7 @@ namespace ProyectoModernizacion
         }
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
+            /*
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
@@ -47,7 +48,18 @@ namespace ProyectoModernizacion
                     this.WindowState = FormWindowState.Normal;
                 }
 
+            }*/
+
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
             }
+            else
+            {
+                this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+                WindowState = FormWindowState.Maximized;
+            }
+
             btnRestaurar.Visible = true;
             btnMaximizar.Visible = false;
         }
