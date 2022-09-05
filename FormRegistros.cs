@@ -133,7 +133,16 @@ namespace ProyectoModernizacion
                 while (j < manejadorExcel.Registros.Count)
                 {
                     regSiguiente = manejadorExcel.Registros[j];     //regSiguiente ES EL REGISTRO SIGUIENTE DE regActual
-                    
+
+                    //EL USUARIO MARCÓ ENTRADA Y SALIDA
+                    if (CasoCorrecto(regActual, regSiguiente))
+                    {
+                        regActual.Horas = regSiguiente.Horario - regActual.Horario;
+                        registrosProcesados.Add(regActual);
+                        i = j + 1; j = i + 1;
+                        break;
+                    }
+
                     //EL USUARIO NO REGISTRÓ LA ENTRADA
                     if (SinMarcarEntrada(regActual))
                     {
@@ -156,15 +165,6 @@ namespace ProyectoModernizacion
                         regActual.Observacion = "No se marcó la salida";
                         registrosProcesados.Add(regActual);
                         i = j; j++;
-                        break;
-                    }
-
-                    //EL USUARIO MARCÓ ENTRADA Y SALIDA
-                    if (CasoCorrecto(regActual, regSiguiente))
-                    {
-                        regActual.Horas = regSiguiente.Horario - regActual.Horario;
-                        registrosProcesados.Add(regActual);
-                        i = j + 1; j = i + 1;
                         break;
                     }
                 }
