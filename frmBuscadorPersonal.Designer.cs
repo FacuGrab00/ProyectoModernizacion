@@ -65,10 +65,10 @@ namespace ProyectoModernizacion
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(654, 50);
+            this.btnBuscar.Location = new System.Drawing.Point(523, 40);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(112, 34);
+            this.btnBuscar.Size = new System.Drawing.Size(90, 30);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -77,23 +77,23 @@ namespace ProyectoModernizacion
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(194, 50);
+            this.label2.Location = new System.Drawing.Point(155, 40);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 34);
+            this.label2.Size = new System.Drawing.Size(36, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "ID:";
             // 
             // txtID
             // 
-            this.txtID.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.txtID.Location = new System.Drawing.Point(249, 50);
+            this.txtID.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtID.Location = new System.Drawing.Point(199, 40);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.PlaceholderText = "Ingrese el ID buscado...";
-            this.txtID.Size = new System.Drawing.Size(399, 34);
+            this.txtID.Size = new System.Drawing.Size(320, 30);
             this.txtID.TabIndex = 3;
             this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged_1);
             // 
@@ -104,10 +104,10 @@ namespace ProyectoModernizacion
             this.btnBuscarNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarNew.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBuscarNew.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarNew.Location = new System.Drawing.Point(771, 50);
+            this.btnBuscarNew.Location = new System.Drawing.Point(617, 40);
             this.btnBuscarNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarNew.Name = "btnBuscarNew";
-            this.btnBuscarNew.Size = new System.Drawing.Size(188, 34);
+            this.btnBuscarNew.Size = new System.Drawing.Size(150, 30);
             this.btnBuscarNew.TabIndex = 9;
             this.btnBuscarNew.Text = "Buscar Nuevo";
             this.btnBuscarNew.UseVisualStyleBackColor = false;
@@ -144,7 +144,7 @@ namespace ProyectoModernizacion
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBusqId.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBusqId.EnableHeadersVisualStyles = false;
-            this.dgvBusqId.Location = new System.Drawing.Point(62, 168);
+            this.dgvBusqId.Location = new System.Drawing.Point(50, 150);
             this.dgvBusqId.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBusqId.Name = "dgvBusqId";
             this.dgvBusqId.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -158,7 +158,7 @@ namespace ProyectoModernizacion
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.dgvBusqId.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBusqId.RowTemplate.Height = 33;
-            this.dgvBusqId.Size = new System.Drawing.Size(1112, 165);
+            this.dgvBusqId.Size = new System.Drawing.Size(890, 150);
             this.dgvBusqId.TabIndex = 10;
             // 
             // label1
@@ -167,19 +167,21 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(10, 180);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 32);
+            this.label1.Size = new System.Drawing.Size(318, 23);
             this.label1.TabIndex = 11;
             this.label1.Text = "Cantidad de Horas Trabajadas:";
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Location = new System.Drawing.Point(163, 128);
+            this.dtpDesde.Location = new System.Drawing.Point(130, 100);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(339, 31);
+            this.dtpDesde.Size = new System.Drawing.Size(272, 27);
             this.dtpDesde.TabIndex = 13;
             this.dtpDesde.ValueChanged += new System.EventHandler(this.dtpDesde_ValueChanged);
             // 
@@ -190,10 +192,10 @@ namespace ProyectoModernizacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(62, 132);
+            this.label3.Location = new System.Drawing.Point(50, 100);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 26);
+            this.label3.Size = new System.Drawing.Size(73, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Desde:";
             // 
@@ -204,18 +206,19 @@ namespace ProyectoModernizacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label4.Location = new System.Drawing.Point(517, 131);
+            this.label4.Location = new System.Drawing.Point(420, 100);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 26);
+            this.label4.Size = new System.Drawing.Size(68, 23);
             this.label4.TabIndex = 16;
             this.label4.Text = "Hasta:";
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(618, 127);
+            this.dtpHasta.Location = new System.Drawing.Point(492, 100);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(341, 31);
+            this.dtpHasta.Size = new System.Drawing.Size(274, 27);
             this.dtpHasta.TabIndex = 15;
             // 
             // btnVer
@@ -225,10 +228,10 @@ namespace ProyectoModernizacion
             this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVer.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnVer.ForeColor = System.Drawing.Color.White;
-            this.btnVer.Location = new System.Drawing.Point(988, 126);
+            this.btnVer.Location = new System.Drawing.Point(790, 100);
             this.btnVer.Margin = new System.Windows.Forms.Padding(2);
             this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(112, 31);
+            this.btnVer.Size = new System.Drawing.Size(90, 30);
             this.btnVer.TabIndex = 17;
             this.btnVer.Text = "Ver";
             this.btnVer.UseVisualStyleBackColor = false;
@@ -240,13 +243,14 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHrsTrab.AutoSize = true;
-            this.lblHrsTrab.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHrsTrab.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHrsTrab.ForeColor = System.Drawing.Color.White;
-            this.lblHrsTrab.Location = new System.Drawing.Point(378, 11);
+            this.lblHrsTrab.Location = new System.Drawing.Point(332, 180);
+            this.lblHrsTrab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHrsTrab.Name = "lblHrsTrab";
-            this.lblHrsTrab.Size = new System.Drawing.Size(33, 32);
+            this.lblHrsTrab.Size = new System.Drawing.Size(25, 23);
             this.lblHrsTrab.TabIndex = 18;
-            this.lblHrsTrab.Text = "N";
+            this.lblHrsTrab.Text = "...";
             // 
             // label5
             // 
@@ -254,11 +258,12 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 53);
+            this.label5.Location = new System.Drawing.Point(10, 20);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(209, 32);
+            this.label5.Size = new System.Drawing.Size(201, 27);
             this.label5.TabIndex = 19;
             this.label5.Text = "Datos Personales";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -269,11 +274,12 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(11, 96);
+            this.label6.Location = new System.Drawing.Point(10, 60);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(214, 30);
+            this.label6.Size = new System.Drawing.Size(200, 23);
             this.label6.TabIndex = 20;
             this.label6.Text = "Nombre y Apellido:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -284,11 +290,12 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(11, 138);
+            this.label7.Location = new System.Drawing.Point(10, 100);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 30);
+            this.label7.Size = new System.Drawing.Size(35, 23);
             this.label7.TabIndex = 21;
             this.label7.Text = "ID:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -299,11 +306,12 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(11, 182);
+            this.label8.Location = new System.Drawing.Point(10, 140);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(314, 30);
+            this.label8.Size = new System.Drawing.Size(302, 23);
             this.label8.TabIndex = 22;
             this.label8.Text = "Cantidad de Dias Trabajados:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -314,13 +322,14 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDiasTrab.AutoSize = true;
-            this.lblDiasTrab.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDiasTrab.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDiasTrab.ForeColor = System.Drawing.Color.White;
-            this.lblDiasTrab.Location = new System.Drawing.Point(331, 182);
+            this.lblDiasTrab.Location = new System.Drawing.Point(316, 140);
+            this.lblDiasTrab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDiasTrab.Name = "lblDiasTrab";
-            this.lblDiasTrab.Size = new System.Drawing.Size(29, 30);
+            this.lblDiasTrab.Size = new System.Drawing.Size(25, 23);
             this.lblDiasTrab.TabIndex = 23;
-            this.lblDiasTrab.Text = "D";
+            this.lblDiasTrab.Text = "...";
             this.lblDiasTrab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // calendario
@@ -328,7 +337,8 @@ namespace ProyectoModernizacion
             this.calendario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.calendario.Location = new System.Drawing.Point(627, 9);
+            this.calendario.Location = new System.Drawing.Point(600, 20);
+            this.calendario.Margin = new System.Windows.Forms.Padding(7);
             this.calendario.Name = "calendario";
             this.calendario.TabIndex = 24;
             // 
@@ -338,13 +348,14 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblID.ForeColor = System.Drawing.Color.White;
-            this.lblID.Location = new System.Drawing.Point(68, 138);
+            this.lblID.Location = new System.Drawing.Point(49, 100);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(36, 30);
+            this.lblID.Size = new System.Drawing.Size(25, 23);
             this.lblID.TabIndex = 25;
-            this.lblID.Text = "ID";
+            this.lblID.Text = "...";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblNomApe
@@ -353,19 +364,19 @@ namespace ProyectoModernizacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNomApe.AutoSize = true;
-            this.lblNomApe.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNomApe.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNomApe.ForeColor = System.Drawing.Color.White;
-            this.lblNomApe.Location = new System.Drawing.Point(231, 96);
+            this.lblNomApe.Location = new System.Drawing.Point(214, 60);
+            this.lblNomApe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomApe.Name = "lblNomApe";
-            this.lblNomApe.Size = new System.Drawing.Size(45, 30);
+            this.lblNomApe.Size = new System.Drawing.Size(25, 23);
             this.lblNomApe.TabIndex = 26;
-            this.lblNomApe.Text = "NA";
+            this.lblNomApe.Text = "...";
             this.lblNomApe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelDatosPersonales
             // 
-            this.panelDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDatosPersonales.Controls.Add(this.label1);
             this.panelDatosPersonales.Controls.Add(this.calendario);
@@ -377,28 +388,29 @@ namespace ProyectoModernizacion
             this.panelDatosPersonales.Controls.Add(this.label8);
             this.panelDatosPersonales.Controls.Add(this.label7);
             this.panelDatosPersonales.Controls.Add(this.label6);
-            this.panelDatosPersonales.Location = new System.Drawing.Point(62, 349);
+            this.panelDatosPersonales.Location = new System.Drawing.Point(50, 349);
+            this.panelDatosPersonales.Margin = new System.Windows.Forms.Padding(2);
             this.panelDatosPersonales.Name = "panelDatosPersonales";
-            this.panelDatosPersonales.Size = new System.Drawing.Size(1112, 402);
+            this.panelDatosPersonales.Size = new System.Drawing.Size(890, 250);
             this.panelDatosPersonales.TabIndex = 27;
             // 
             // frmBuscadorPersonal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(1238, 763);
-            this.Controls.Add(this.panelDatosPersonales);
+            this.ClientSize = new System.Drawing.Size(990, 610);
+            this.Controls.Add(this.dgvBusqId);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpHasta);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpDesde);
-            this.Controls.Add(this.dgvBusqId);
             this.Controls.Add(this.btnBuscarNew);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.panelDatosPersonales);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscadorPersonal";
