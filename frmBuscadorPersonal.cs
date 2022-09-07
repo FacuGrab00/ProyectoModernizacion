@@ -216,7 +216,7 @@ namespace ProyectoModernizacion
             //variables para filtrar registros
             DateTime desde = dtpDesde.Value;
             DateTime hasta = dtpHasta.Value;
-
+            
             dgvBusqId.DataSource = null;
             dgvBusqId.DataSource = registrosUnID.Where(w => w.Horario > desde && w.Horario < hasta).ToList();
 
@@ -229,7 +229,26 @@ namespace ProyectoModernizacion
                 //string codigo = Convert.ToString(row.Cells["Codigo"].Value);
                 hrsTotales += (TimeSpan)row.Cells["Horas"].Value;
             }
-           
+
+            bool bandera = false;
+            int inasistencias = 0;
+            while(desde.Day <= hasta.Day)
+            {
+                foreach (Registro registro in registrosUnID)
+                {
+                    if (registro.Horario.Day == desde.Day)
+                    {
+                        bandera = false;
+                        break;
+                    }
+                    else
+                        bandera = true;
+                }
+                if (bandera)
+                {
+                    inasistencias++;
+                }
+            }
 
 
            lblHrsTrab.Text = hrsTotales.ToString();
