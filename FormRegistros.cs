@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using SpreadsheetLight;
+//Using para pode usar select para cBox
+using System.Linq;
 
 namespace ProyectoModernizacion
 {
@@ -133,7 +135,16 @@ namespace ProyectoModernizacion
                 while (j < manejadorExcel.Registros.Count)
                 {
                     regSiguiente = manejadorExcel.Registros[j];     //regSiguiente ES EL REGISTRO SIGUIENTE DE regActual
-                    
+
+                    //EL USUARIO MARCÓ ENTRADA Y SALIDA
+                    if (CasoCorrecto(regActual, regSiguiente))
+                    {
+                        regActual.Horas = regSiguiente.Horario - regActual.Horario;
+                        registrosProcesados.Add(regActual);
+                        i = j + 1; j = i + 1;
+                        break;
+                    }
+
                     //EL USUARIO NO REGISTRÓ LA ENTRADA
                     if (SinMarcarEntrada(regActual))
                     {
@@ -158,15 +169,6 @@ namespace ProyectoModernizacion
                         i = j; j++;
                         break;
                     }
-
-                    //EL USUARIO MARCÓ ENTRADA Y SALIDA
-                    if (CasoCorrecto(regActual, regSiguiente))
-                    {
-                        regActual.Horas = regSiguiente.Horario - regActual.Horario;
-                        registrosProcesados.Add(regActual);
-                        i = j + 1; j = i + 1;
-                        break;
-                    }
                 }
             }
         }
@@ -176,7 +178,7 @@ namespace ProyectoModernizacion
             bool bandera = false;
             //EN CASO DE QUE EL USUARIO MARCÓ LA ENTRADA Y SALIDA SE DEBE CUMPLIR QUE
             if (regActual.ID.Equals(regSiguiente.ID))   //EL ID REGISTRANTE ES IGUAL AL SIGUIENTE ID REGISTRANTE
-                if (regActual.Horario.Day.Equals(regSiguiente.Horario.Day))     //LOS DIAS COINCIDEN
+                if (regActual.Horario.Date.Equals(regSiguiente.Horario.Date))     //LOS DIAS COINCIDEN
                     if (regActual.Estado == "Registro de entrada" && regSiguiente.Estado == "Registro de salida")   //EL USUARIO MARCÓ PRIMERO ENTRADA Y LUEGO SALIDA
                         bandera = true;
             return bandera;
@@ -196,7 +198,7 @@ namespace ProyectoModernizacion
             bool bandera = false;
             //EN CASO DE QUE EL USUARIO MARCÓ DOS VECES LA ENTRADA SE DEBE CUMPLIR QUE
             if (regActual.ID.Equals(regSiguiente.ID))   //EL ID REGISTRANTE ES IGUAL AL SIGUIENTE ID REGISTRANTE
-                if (regActual.Horario.Day.Equals(regSiguiente.Horario.Day))     //LOS DIAS COINCIDEN
+                if (regActual.Horario.Date.Equals(regSiguiente.Horario.Date))     //LOS DIAS COINCIDEN
                     if (regActual.Estado == "Registro de entrada" && regSiguiente.Estado == "Registro de entrada")  //EL USUARIO MARCÓ PRIMERO ENTRADA Y LUEGO ENTRADA NUEVAMENTE
                         bandera = true;
             return bandera;
@@ -213,7 +215,7 @@ namespace ProyectoModernizacion
 
             //EL ID REGISTRANTE COINCIDE CON EL ID REGISTRANTE SIGUIENTE
             if (regActual.ID.Equals(regSiguiente.ID))
-                if (!regActual.Horario.Day.Equals(regSiguiente.Horario.Day)) //LOS DIAS NO COINCIDEN
+                if (!regActual.Horario.Date.Equals(regSiguiente.Horario.Date)) //LOS DIAS NO COINCIDEN
                     bandera = true;
             return bandera;
         }
@@ -225,6 +227,24 @@ namespace ProyectoModernizacion
             Procesar_Registros();
             dgvExcel.DataSource = registrosProcesados;
             manejadorExcel.ExportarExcel(mainPath, dgvExcel);
+
+
+            //PROBANDO PARA CARGAR COMBOBOX
+            /*frmBuscadorPersonal frmBPparaCBOX = new frmBuscadorPersonal();
+            //guardo en result todos los id distintos
+            var result = (from item in registrosProcesados select item.ID).Distinct();
+
+            //lleno el comboBox con los id`s
+            frmBPparaCBOX.cBoxId.DataSource = result.ToList();*/
+
+
+        }
+
+
+        //Procedimiento para caragar comboBox
+        public void cargarComboBox()
+        {
+            
         }
 
         private void FormRegistros_Load(object sender, EventArgs e)
