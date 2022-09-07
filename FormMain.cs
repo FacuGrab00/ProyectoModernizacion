@@ -173,12 +173,43 @@ namespace ProyectoModernizacion
         {
             moduloRegistro.VolcarRegistros();
         }
-       
 
+        //frmBuscadorPersonal frmBPers = new frmBuscadorPersonal();
+
+        //Nuevooo
+        FormRegistros buscarId;
+        //Lista de los registros
+        List<Registro> registrosParaCbox = new List<Registro>();
+
+        public void setBuscarId(FormRegistros busId)
+        {
+            buscarId = busId;
+        }
         private void BtnBuscador_Click_1(object sender, EventArgs e)
         {
             AbrirFormHijo(moduloBuscarPersonal);
             moduloBuscarPersonal.setBuscarId(moduloRegistro);
+            /*
+            var result = (from item in registrosParaCbox select item.ID).Distinct();
+            //lleno el comboBox con los id`s
+            this.moduloBuscarPersonal.cBoxId.DataSource = result.ToList();
+
+            registrosParaCbox = buscarId.getRegistros();
+            for (int i = 0; i < registrosParaCbox.Count; i++)
+            {
+
+            }
+            */
+
+            //moduloBuscarPersonal.cBoxId.Items.Add("jjjjj");
+
+            //moduloBuscarPersonal.cBoxId.Items.Add(moduloBuscarPersonal.cargarComboBox());
+
+            // moduloBuscarPersonal.cargarComboBox();
+
+            //frmBPers.cargarComboBox();
+
+
         }
     }
 }

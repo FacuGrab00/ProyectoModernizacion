@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using SpreadsheetLight;
+//Using para pode usar select para cBox
+using System.Linq;
 
 namespace ProyectoModernizacion
 {
@@ -225,6 +227,24 @@ namespace ProyectoModernizacion
             Procesar_Registros();
             dgvExcel.DataSource = registrosProcesados;
             manejadorExcel.ExportarExcel(mainPath, dgvExcel);
+
+
+            //PROBANDO PARA CARGAR COMBOBOX
+            /*frmBuscadorPersonal frmBPparaCBOX = new frmBuscadorPersonal();
+            //guardo en result todos los id distintos
+            var result = (from item in registrosProcesados select item.ID).Distinct();
+
+            //lleno el comboBox con los id`s
+            frmBPparaCBOX.cBoxId.DataSource = result.ToList();*/
+
+
+        }
+
+
+        //Procedimiento para caragar comboBox
+        public void cargarComboBox()
+        {
+            
         }
 
         private void FormRegistros_Load(object sender, EventArgs e)

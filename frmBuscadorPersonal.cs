@@ -20,9 +20,14 @@ namespace ProyectoModernizacion
         }
 
         FormRegistros buscarId;
+        //Lista de los registros
         List<Registro> registros = new List<Registro>();
-
+        
+        //Lista para guardar los registros de un registro buscado
         List<Registro> registrosUnID = new List<Registro>();
+
+        //Lista para cargar todos los id para el combo box
+        List<string> ids = new List<string>();
 
 
         private void marcarFecha()
@@ -36,6 +41,7 @@ namespace ProyectoModernizacion
             }
 
             calendario.BoldedDates = fechasTrabajadas;
+            
         }
 
         //creo una nueva lista para guardar los registros por una fecha
@@ -46,12 +52,19 @@ namespace ProyectoModernizacion
             int contador=0;
             for (int i = 0; i < registrosUnID.Count; i++)
             {
-                if (registrosUnID[i].ID == txtID.Text)
+                //Con textBox
+                /*if (registrosUnID[i].ID == txtID.Text)
                 {
                     contador++;   
+                }*/
+                //Con combobox
+                if (registrosUnID[i].ID == cBoxId.Text)
+                {
+                    contador++;
                 }
+
             }
-            
+
             return contador;
         }
        
@@ -66,12 +79,13 @@ namespace ProyectoModernizacion
 
             registros = buscarId.getRegistros();
             //variable para almacenar el id del texbox
-            string busId = txtID.Text;
+            //string busId = txtID.Text;
 
-            //string [] vector = new string[3];
+            string busId = cBoxId.Text;
 
-            //dgvBusqId.ColumnCount=3;
-            
+            //Con ConboBox
+            //string busId = cBoxId.Text;
+
             //recorro la lista de datos procesados
             for (int i = 0; i < registros.Count; i++)
             {
@@ -80,18 +94,14 @@ namespace ProyectoModernizacion
                 {
                     //en esta lista se guardan los registros encontrados
                     registrosUnID.Add(registros[i]);
-
-
-                    /*vector[0] = registros[i].ID;
-                    vector[1] = registros[i].Nombre;
-                    vector[2] = registros[i].Horas.ToString();*/
-
-                    //dgvBusqId.DataSource = registros[i].ToString();
-                    //dgvBusqId.Rows.Add(vector);
+   
                 }
-
             }
 
+            //////////////////////////////////////////////////////
+            //cargarComboBox();
+            ////////////////////////////////////////////////////
+           
             //si contiene elementos muestro en el DataGridview si no muestro un mensaje
             if (registrosUnID.Any())
             {
@@ -99,29 +109,26 @@ namespace ProyectoModernizacion
                 dgvBusqId.DataSource = null;
                 dgvBusqId.DataSource = registrosUnID;
 
-
-                //Variable horas total
+                //Variable para calcular total de horas de un trabajador
                 TimeSpan hrsTotales = new TimeSpan();
-                string nomIDBusq;
-
+                
+                //recorro los registros de un id buscado y sumo la cantidad de horas
                 for (int i = 0; i < registrosUnID.Count; i++)
                 {
                     hrsTotales += registrosUnID[i].Horas;
                 }
-
+                //Muestro los datos en los label`s
                 lblHrsTrab.Text = hrsTotales.ToString();
-
-                lblID.Text = txtID.Text;
-
-
+                //lblID.Text = txtID.Text;
+                lblID.Text = cBoxId.Text;
                 lblNomApe.Text = registrosUnID[0].Nombre.ToString();
                 
             }
             else
             {
+                //Si no encuentra una persona por su id da un msj
                 MessageBox.Show("Esta Persona No Se Encuentra");
             }
-
 
             //deshabilito el boton buscar
             btnBuscar.Enabled = false;
@@ -131,19 +138,43 @@ namespace ProyectoModernizacion
 
             //Muestro la cantidad de dias trabajados
             lblDiasTrab.Text = Convert.ToString(cantidadDiasTrab());
+
+
             
-           
 
             marcarFecha();
 
+            //calendario.;
             //registrosUnID.Clear();
             //dgvBusqId.DataSource = registros;
         }
 
+        //Procedimiento para caragar comboBox
+        public void cargarComboBox()
+        {
+            //guardo en result todos los id distintos
+            registros = buscarId.getRegistros();
+            List<Registro> listids = new List<Registro>();
+
+            for (int i = 0; i < registros.Count; i++)
+            {
+                listids.Add(registros[i]);
+            }
+
+            var result = (from item in listids select item.ID).Distinct();
+
+            //lleno el comboBox con los id`s
+            cBoxId.DataSource = result.ToList();
+        }
+
+
+        //Cuando se quiere buscar una nueva persona
         private void btnBuscarNew_Click(object sender, EventArgs e)
         {
-            //limpio el textbox
-            txtID.Clear();
+            
+
+            //limpio el combobox
+            cBoxId.Text = "";
             //habilito el boton buscar
             btnBuscar.Enabled = true;
             //deshabilito el boton buscar nuevo
@@ -156,31 +187,26 @@ namespace ProyectoModernizacion
             lblDiasTrab.Text = "";
             lblNomApe.Text = "";
             lblID.Text = "";
+            lblHrsTrab.Text = "";
 
-
-
+            //limpio el calendario
             calendario.BoldedDates = null;
             
         }
 
-        //De esta forma se va actualizando el dgv cuando se esta buscando
+        
         private void txtID_TextChanged_1(object sender, EventArgs e)
         {
 
-            if (txtID.Text == "")
-            {
-                btnBuscar.Enabled = false;
-            }
-            else
-            {
-                btnBuscar.Enabled = true;
-            }
+            /* if (txtID.Text == "")
+             {
+                 btnBuscar.Enabled = false;
+             }
+             else
+             {
+                 btnBuscar.Enabled = true;
+             }*/
 
-            /*dgvBusqId.CurrentCell = null;
-            foreach (DataGridViewRow fila in dgvBusqId.Rows)
-            {
-                fila.Visible = fila.Cells["ID"].Value.ToString().ToUpper().Contains(txtID.Text.ToUpper());
-            }*/
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -203,35 +229,11 @@ namespace ProyectoModernizacion
                 //string codigo = Convert.ToString(row.Cells["Codigo"].Value);
                 hrsTotales += (TimeSpan)row.Cells["Horas"].Value;
             }
-
-            //Variable horas total
-            //TimeSpan hrsTotales = new TimeSpan();
-
-            /*for (int i = 0; i < registrosUnID.Count; i++)
-            {
-                hrsTotales += registrosUnID[i].Horas;
-            }*/
            
 
-            lblHrsTrab.Text = hrsTotales.ToString();
 
-            
+           lblHrsTrab.Text = hrsTotales.ToString();
 
-            //creo una variable para guardar el texto del combobox
-            //string fechFilter = cBoxFechas.Text;
-
-            //Recorro la lista de los registros de una persona buscada
-            /*for (int i = 0; i < registrosUnID.Count; i++)
-            {
-                //comparo el txt del combobox con la columna Horarios si lo encuentra lo guarda en una nueva lista
-                if (fechFilter == registrosUnID[i].Horario.ToString())
-                {
-                    registrosPorFecha.Add(registrosUnID[i]);
-                }
-            }
-            //dgvBusqId.Columns.Clear();
-            dgvBusqId.DataSource = null;
-            dgvBusqId.DataSource = registrosPorFecha;*/
         }
 
         //Evento cuando se cambia la fecha del comboBox
@@ -248,6 +250,27 @@ namespace ProyectoModernizacion
         private void dtpDesde_ValueChanged(object sender, EventArgs e)
         {
             lblHrsTrab.Text = "";
+        }
+
+        
+
+        
+
+        private void cBoxId_Click(object sender, EventArgs e)
+        {
+            cargarComboBox();
+        }
+
+        private void cBoxId_TextChanged(object sender, EventArgs e)
+        {
+            if (cBoxId.Text == "")
+            {
+                btnBuscar.Enabled = false;
+            }
+            else
+            {
+                btnBuscar.Enabled = true;
+            }
         }
     }
 
