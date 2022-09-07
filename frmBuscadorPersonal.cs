@@ -138,7 +138,10 @@ namespace ProyectoModernizacion
 
             //Muestro la cantidad de dias trabajados
             lblDiasTrab.Text = Convert.ToString(cantidadDiasTrab());
+
+
             
+
             marcarFecha();
 
             //calendario.;
@@ -228,7 +231,8 @@ namespace ProyectoModernizacion
             }
            
 
-            lblHrsTrab.Text = hrsTotales.ToString();
+
+           lblHrsTrab.Text = hrsTotales.ToString();
 
         }
 
