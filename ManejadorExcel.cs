@@ -75,11 +75,7 @@ namespace ProyectoModernizacion
             {
                 string id = excelPrincipal.GetCellValueAsString(iRow, 1);
                 string nombre = excelPrincipal.GetCellValueAsString(iRow, 2);
-<<<<<<< HEAD
-                DateTime horario = Convert.ToDateTime(excelPrincipal.GetCellValueAsDateTime(iRow, 3));
-=======
                 DateTime horario = excelPrincipal.GetCellValueAsDateTime(iRow, 3);
->>>>>>> 912f8b597eed97f15eabd4b73e3d832862a97e1a
                 string estado = excelPrincipal.GetCellValueAsString(iRow, 4);
                 registro = new Registro(id, nombre, horario, estado);
                 registros.Add(registro);
