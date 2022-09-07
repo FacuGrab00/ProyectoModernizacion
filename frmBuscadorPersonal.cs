@@ -111,14 +111,21 @@ namespace ProyectoModernizacion
 
                 //Variable para calcular total de horas de un trabajador
                 TimeSpan hrsTotales = new TimeSpan();
+
                 
+
                 //recorro los registros de un id buscado y sumo la cantidad de horas
                 for (int i = 0; i < registrosUnID.Count; i++)
                 {
                     hrsTotales += registrosUnID[i].Horas;
                 }
+
+                string horas = ((int)hrsTotales.TotalHours).ToString();
+                string minutos = hrsTotales.ToString("mm");
+                string segundos = hrsTotales.ToString("ss");
+
                 //Muestro los datos en los label`s
-                lblHrsTrab.Text = hrsTotales.ToString();
+                lblHrsTrab.Text = horas + ":" + minutos + ":" + segundos;
                 //lblID.Text = txtID.Text;
                 lblID.Text = cBoxId.Text;
                 lblNomApe.Text = registrosUnID[0].Nombre.ToString();
