@@ -75,7 +75,7 @@ namespace ProyectoModernizacion
             {
                 string id = excelPrincipal.GetCellValueAsString(iRow, 1);
                 string nombre = excelPrincipal.GetCellValueAsString(iRow, 2);
-                DateTime horario = Convert.ToDateTime(excelPrincipal.GetCellValueAsString(iRow, 3));
+                DateTime horario = Convert.ToDateTime(excelPrincipal.GetCellValueAsDateTime(iRow, 3));
                 string estado = excelPrincipal.GetCellValueAsString(iRow, 4);
                 registro = new Registro(id, nombre, horario, estado);
                 registros.Add(registro);
@@ -105,7 +105,7 @@ namespace ProyectoModernizacion
             {
                 excelPrincipal.SetCellValue(iR,1, registro.ID);
                 excelPrincipal.SetCellValue(iR, 2, registro.Nombre);
-                excelPrincipal.SetCellValue(iR, 3, registro.Horario.ToString());
+                excelPrincipal.SetCellValue(iR, 3, registro.Horario.ToString("yyyy/MM/dd HH:mm:ss"));
                 excelPrincipal.SetCellValue(iR, 4, registro.Estado);
 
                 iR++;
