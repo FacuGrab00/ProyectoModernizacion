@@ -178,7 +178,7 @@ namespace ProyectoModernizacion
             bool bandera = false;
             //EN CASO DE QUE EL USUARIO MARCÓ LA ENTRADA Y SALIDA SE DEBE CUMPLIR QUE
             if (regActual.ID.Equals(regSiguiente.ID))   //EL ID REGISTRANTE ES IGUAL AL SIGUIENTE ID REGISTRANTE
-                if (regActual.Horario.Day.Equals(regSiguiente.Horario.Day))     //LOS DIAS COINCIDEN
+                if (regActual.Horario.Date.Equals(regSiguiente.Horario.Date))     //LOS DIAS COINCIDEN
                     if (regActual.Estado == "Registro de entrada" && regSiguiente.Estado == "Registro de salida")   //EL USUARIO MARCÓ PRIMERO ENTRADA Y LUEGO SALIDA
                         bandera = true;
             return bandera;
@@ -198,7 +198,7 @@ namespace ProyectoModernizacion
             bool bandera = false;
             //EN CASO DE QUE EL USUARIO MARCÓ DOS VECES LA ENTRADA SE DEBE CUMPLIR QUE
             if (regActual.ID.Equals(regSiguiente.ID))   //EL ID REGISTRANTE ES IGUAL AL SIGUIENTE ID REGISTRANTE
-                if (regActual.Horario.Day.Equals(regSiguiente.Horario.Day))     //LOS DIAS COINCIDEN
+                if (regActual.Horario.Date.Equals(regSiguiente.Horario.Date))     //LOS DIAS COINCIDEN
                     if (regActual.Estado == "Registro de entrada" && regSiguiente.Estado == "Registro de entrada")  //EL USUARIO MARCÓ PRIMERO ENTRADA Y LUEGO ENTRADA NUEVAMENTE
                         bandera = true;
             return bandera;
@@ -215,7 +215,7 @@ namespace ProyectoModernizacion
 
             //EL ID REGISTRANTE COINCIDE CON EL ID REGISTRANTE SIGUIENTE
             if (regActual.ID.Equals(regSiguiente.ID))
-                if (!regActual.Horario.Day.Equals(regSiguiente.Horario.Day)) //LOS DIAS NO COINCIDEN
+                if (!regActual.Horario.Date.Equals(regSiguiente.Horario.Date)) //LOS DIAS NO COINCIDEN
                     bandera = true;
             return bandera;
         }
