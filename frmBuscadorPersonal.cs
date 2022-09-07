@@ -196,6 +196,8 @@ namespace ProyectoModernizacion
             lblID.Text = "";
             lblHrsTrab.Text = "";
 
+            lblFaltas.Text = "";
+
             //limpio el calendario
             calendario.BoldedDates = null;
             
@@ -236,10 +238,40 @@ namespace ProyectoModernizacion
                 //string codigo = Convert.ToString(row.Cells["Codigo"].Value);
                 hrsTotales += (TimeSpan)row.Cells["Horas"].Value;
             }
-           
 
 
-           lblHrsTrab.Text = hrsTotales.ToString();
+            /////////////////PARA CALCULAR LAS INASISTENCIAS/////////////////
+            bool bandera = false;
+            int inasistencias = 0;
+            while (desde.Date <= hasta.Date)
+            {
+                foreach (Registro registro in registrosUnID)
+                {
+                    if (registro.Horario.Date == desde.Date)
+                    {
+                        bandera = false;
+                        break;
+                    }
+                    else
+                    {
+                        if (desde.DayOfWeek != DayOfWeek.Sunday && desde.DayOfWeek != DayOfWeek.Saturday)
+                        {
+                            bandera = true;
+                        }
+                    }
+                        
+                }
+                if (bandera)
+                {
+                    inasistencias++;
+                }
+                desde=desde.AddDays(1);
+               
+            }
+
+            lblFaltas.Text = inasistencias.ToString();
+
+            lblHrsTrab.Text = hrsTotales.ToString();
 
         }
 
