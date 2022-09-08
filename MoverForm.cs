@@ -23,8 +23,7 @@ namespace ProyectoModernizacion
 			ReleaseCapture();
 			SendMessage(pForm.Handle, 0x112, 0xf012, 0);
 		}
-		public MoverForm()
-		{
-		}
+
+		public MoverForm(){}
 	}
 }

@@ -5,9 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using SpreadsheetLight;
-//Using para pode usar select para cBox
-using System.Linq;
 
 namespace ProyectoModernizacion
 {
@@ -29,88 +26,6 @@ namespace ProyectoModernizacion
             return registrosProcesados;
         }
 
-        //PROCESAR REGISTROS ALGORTIMO 1: ESTE ALGORITMO UTILIZA UN SOLO INDICE "i" QUE EMPIEZA A RECORRER DESDE EL SEGUNDO INDICE, CONTROLANDOSE CON SU ANTERIOR "i-1"
-        //NO HAY CERTEZA DE QUE CONTEMPLE TODOS LOS CASOS
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        private void ProcesarRegistros()
-        {
-            manejadorExcel = new ManejadorExcel();
-            Registro regActual;
-            Registro regAnterior;
-            for (int i = 1; i < manejadorExcel.Registros.Count; i++)
-            {
-                regActual = manejadorExcel.Registros[i];
-                regAnterior = manejadorExcel.Registros[i-1];
-                if (CasoComun(regActual, regAnterior))
-                {
-                    regActual.Horas = regActual.Horario - regAnterior.Horario;
-                    registrosProcesados.Add(regActual);
-                }
-
-                if (CasoDobleSalida(regActual, regAnterior))
-                {
-                    regActual.Observacion = "No se marcó la entrada";
-                    regActual.Horas = TimeSpan.Zero;
-                    registrosProcesados.Add(regActual);
-                }
-
-                if(CasoDobleEntrada(regActual, regAnterior))
-                {
-                    regActual = manejadorExcel.Registros[i+1];
-                    if (CasoComun(regActual, regAnterior))
-                    {
-                        regActual.Horas = regActual.Horario - regAnterior.Horario;
-                        registrosProcesados.Add(regActual);
-                        i++;
-                    }
-                    else
-                    {
-                        regActual.Observacion = "No se marcó la Salida";
-                        regActual.Horas = TimeSpan.Zero;
-
-                        registrosProcesados.Add(regActual);
-
-                    }
-                }
-            }
-        }
-        
-        //EL USUARIO MARCO CORRECTAMENTE LA ENTRADA Y LA SALIDA
-        private bool CasoComun(Registro regActual, Registro regAnterior)
-        {
-            bool bandera = false;
-            if (regActual.ID.Equals(regAnterior.ID))
-                if (regActual.Horario.Day.Equals(regAnterior.Horario.Day))
-                    if (regActual.Estado == "Registro de salida" && regAnterior.Estado == "Registro de entrada")
-                        bandera = true;
-            return bandera;
-        }
-
-        //EL USUARIO MARCÓ DOS VECES LA ENTRADA
-        private bool CasoDobleEntrada(Registro regActual, Registro regAnterior)
-        {
-            bool bandera = false;
-            if (regActual.ID.Equals(regAnterior.ID))
-                if (regActual.Horario.Day.Equals(regAnterior.Horario.Day))
-                    if (regActual.Estado == "Registro de entrada" && regAnterior.Estado == "Registro de entrada")
-                        bandera = true;
-            return bandera;
-        }
-
-        //EL USUARIO MARCÓ LA SALIDA
-        private bool CasoDobleSalida(Registro regActual, Registro regAnterior)
-        {
-            bool bandera = false;
-            if (regActual.ID.Equals(regAnterior.ID))
-                if (!regActual.Horario.Day.Equals(regAnterior.Horario.Day))
-                    if (regActual.Estado == "Registro de salida" && regAnterior.Estado == "Registro de salida")
-                        bandera = true;
-            return bandera;
-        }
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //PROCESAR REGISTROS ALGORITMO 2: ESTE ALGORITMO UTILIZA DOS INDICES "i" QUE EMPIEZA EN EL PRIMER REGISTRO Y "j" QUE APUNTA AL SIGUIENTE REGISTRO
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         public void Procesar_Registros()
         {
             manejadorExcel = new ManejadorExcel();
@@ -172,7 +87,6 @@ namespace ProyectoModernizacion
                 }
             }
         }
-
         private bool CasoCorrecto(Registro regActual, Registro regSiguiente)
         {
             bool bandera = false;
@@ -219,7 +133,6 @@ namespace ProyectoModernizacion
                     bandera = true;
             return bandera;
         }
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //VOLCAMOS LOS REGISTROS PROCESADOS AL DGV
         public void VolcarRegistros()
@@ -227,23 +140,13 @@ namespace ProyectoModernizacion
             Procesar_Registros();
             dgvExcel.DataSource = registrosProcesados;
             manejadorExcel.ExportarExcel(mainPath, dgvExcel);
-
-
-            //PROBANDO PARA CARGAR COMBOBOX
-            /*frmBuscadorPersonal frmBPparaCBOX = new frmBuscadorPersonal();
-            //guardo en result todos los id distintos
-            var result = (from item in registrosProcesados select item.ID).Distinct();
-
-            //lleno el comboBox con los id`s
-            frmBPparaCBOX.cBoxId.DataSource = result.ToList();*/
-
-
         }
 
         private void FormRegistros_Load(object sender, EventArgs e)
         {
             dgvExcel.DataSource = registrosProcesados;
         }
+
     }//FIN CLASE
 
 }
