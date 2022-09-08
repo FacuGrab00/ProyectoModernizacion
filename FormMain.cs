@@ -19,7 +19,6 @@ namespace ProyectoModernizacion
         public FormMain()
         {
             InitializeComponent();
-            btnRestaurar.Visible = false;
         }
 
         //PANEL PARA MOVER FORM
@@ -28,32 +27,17 @@ namespace ProyectoModernizacion
             if (e.Button == MouseButtons.Left)
                 MoverForm.MoverFrm(this);
         }
+
         //FUNCIONALIDADES DE VENTANA
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
-            /*
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-
-            }
-            else
-            {
-                if (this.WindowState == FormWindowState.Maximized)
-                {
-                    this.WindowState = FormWindowState.Normal;
-                }
-
-            }*/
-
             if (WindowState == FormWindowState.Maximized)
-            {
                 WindowState = FormWindowState.Normal;
-            }
             else
             {
                 this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
@@ -63,12 +47,14 @@ namespace ProyectoModernizacion
             btnRestaurar.Visible = true;
             btnMaximizar.Visible = false;
         }
+
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             btnRestaurar.Visible = false;
             btnMaximizar.Visible = true;
         }
+
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -86,8 +72,6 @@ namespace ProyectoModernizacion
                 subMenuProcesar.Visible = false;
             if (subMenuTabla.Visible == true)
                 subMenuTabla.Visible = false;
-            if (subMenu2.Visible == true)
-                subMenu2.Visible = false;
         }
 
         //DESPLIEGA LOS SUBMENUS
@@ -115,7 +99,6 @@ namespace ProyectoModernizacion
             fh.Show();
         }
 
-
         //DESENCADENA EL PROCESO PARA IMPORTAR UN EXCEL
         private void BtnAbrir_Click(object sender, EventArgs e)
         {
@@ -129,26 +112,6 @@ namespace ProyectoModernizacion
             else{/*EN CASO DE NO REALIZAR LA IMPORTACIÓN*/}
         }
 
-        //FUNCIÓN PARA PASAR EN MAYUSCULAS LOS NOMBRES Y APELLIDOS (SIN USO)
-        private string PasarMayuscula(String nombreApellido)
-        {
-            nombreApellido = nombreApellido.UpperFirstChar();
-            return nombreApellido;
-        }
-
-        //DESENCADENA TODO EL PROCESO DE EXPORTACIÓN DEL EXCEL PRINCIPAL
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                moduloTabla.SavePath = saveFileDialog1.FileName;
-                moduloTabla.ExportarCambios();
-            }
-            else{/* EN CASO DE NO REALIZAR EL GUARDADO */}
-
-            
-        }
-
         //CIERRA LA APLICACIÓN
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -159,12 +122,16 @@ namespace ProyectoModernizacion
         //DESPLIEGA SUBMENU Y ABRE EL MODULO TABLA
         private void BtnTabla_Click(object sender, EventArgs e)
         {
+            labelLogo.Visible = false;
+            logo.Visible = false;
             AbrirFormHijo(moduloTabla);
             ShowSubMenu(subMenuTabla);
         }
 
         private void BtnProcesar_Click(object sender, EventArgs e)
         {
+            labelLogo.Visible = false;
+            logo.Visible = false;
             AbrirFormHijo(moduloRegistro);
             ShowSubMenu(subMenuProcesar);
         }
@@ -174,42 +141,24 @@ namespace ProyectoModernizacion
             moduloRegistro.VolcarRegistros();
         }
 
-        //frmBuscadorPersonal frmBPers = new frmBuscadorPersonal();
-
-        //Nuevooo
-        FormRegistros buscarId;
-        //Lista de los registros
-        List<Registro> registrosParaCbox = new List<Registro>();
-
-        public void setBuscarId(FormRegistros busId)
+        private void BtnBuscador_Click(object sender, EventArgs e)
         {
-            buscarId = busId;
-        }
-        private void BtnBuscador_Click_1(object sender, EventArgs e)
-        {
+            labelLogo.Visible = false;
+            logo.Visible = false;
             AbrirFormHijo(moduloBuscarPersonal);
-            moduloBuscarPersonal.setBuscarId(moduloRegistro);
-            /*
-            var result = (from item in registrosParaCbox select item.ID).Distinct();
-            //lleno el comboBox con los id`s
-            this.moduloBuscarPersonal.cBoxId.DataSource = result.ToList();
-
-            registrosParaCbox = buscarId.getRegistros();
-            for (int i = 0; i < registrosParaCbox.Count; i++)
-            {
-
-            }
-            */
-
-            //moduloBuscarPersonal.cBoxId.Items.Add("jjjjj");
-
-            //moduloBuscarPersonal.cBoxId.Items.Add(moduloBuscarPersonal.cargarComboBox());
-
-            // moduloBuscarPersonal.cargarComboBox();
-
-            //frmBPers.cargarComboBox();
-
-
+            moduloBuscarPersonal.BuscarId = moduloRegistro;
         }
-    }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            //ABRIMOS LA VENTANA DE BUSQUEDA PARA IMPORTAR EL EXCEL
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //GUARDAMOS LA DIRECCIÓN DEL EXCEL A IMPORTAR
+                moduloRegistro.SavePath = saveFileDialog1.FileName;
+                moduloRegistro.Exportar();
+            }
+            else {/*EN CASO DE NO REALIZAR LA IMPORTACIÓN*/}
+        }
+    }//FIN CLASE
 }

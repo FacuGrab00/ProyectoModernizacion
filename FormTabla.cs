@@ -20,7 +20,6 @@ namespace ProyectoModernizacion
 
         //GETTERS Y SETTERS
         public string FilePath { get; set; }
-        public string SavePath { get; set; }
         
 
         //CARGADO DEL FORMULARIO
@@ -55,12 +54,5 @@ namespace ProyectoModernizacion
                 dgvExcel.Rows.Add(registro.ID, registro.Nombre, registro.Horario, registro.Estado);
             }
         }
-
-        public void ExportarCambios()
-        {
-            manejadorExcel.ExportarExcel(SavePath, dgvExcel);
-            MessageBox.Show("Se guardó con exito!");
-        }
-
     }
 }

@@ -6,10 +6,10 @@ namespace ProyectoModernizacion
 {
     public class Registro
     {
-        string id;
-        DateTime horario;
-        string nombre;
-        string estado;
+        readonly string id;
+        readonly DateTime horario;
+        readonly string nombre;
+        readonly string estado;
         TimeSpan horas;
         string observacion = "";
 

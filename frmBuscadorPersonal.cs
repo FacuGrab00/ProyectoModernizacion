@@ -22,13 +22,15 @@ namespace ProyectoModernizacion
         List<Registro> registros = new List<Registro>();
         
         //Lista para guardar los registros de un registro buscado
-        List<Registro> registrosUnID = new List<Registro>();
+        readonly List<Registro> registrosUnID = new List<Registro>();
 
         //creo una nueva lista para guardar los registros por una fecha
-        List<Registro> registrosPorFecha = new List<Registro>();
+        readonly List<Registro> registrosPorFecha = new List<Registro>();
 
         //Lista para cargar todos los id para el combo box
-        List<string> ids = new List<string>();
+        readonly List<string> ids = new List<string>();
+
+        public FormRegistros BuscarId { set => buscarId = value; }
 
         private void marcarFecha()
         {
@@ -51,37 +53,22 @@ namespace ProyectoModernizacion
             }
             return contador;
         }
-       
-        public void setBuscarId(FormRegistros busId)
-        {
-            buscarId = busId;
-        }
 
         //busco el id cuando presiono el boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            if(dgvBusqId.DataSource != null)
+                Limpiar();
 
-            registros = buscarId.getRegistros();
-            //variable para almacenar el id del texbox
-
+            registros = buscarId.RegistrosProcesados;
             string busId = cBoxId.Text;
 
-            //recorro la lista de datos procesados
             for (int i = 0; i < registros.Count; i++)
             {
-                //si lo encuentra lo guarda en una nueva lista
                 if (busId == registros[i].ID)
-                {
-                    //en esta lista se guardan los registros encontrados
                     registrosUnID.Add(registros[i]);
-   
-                }
             }
 
-            //////////////////////////////////////////////////////
-            //cargarComboBox();
-            ////////////////////////////////////////////////////
-           
             //si contiene elementos muestro en el DataGridview si no muestro un mensaje
             if (registrosUnID.Any())
             {
@@ -114,11 +101,57 @@ namespace ProyectoModernizacion
                 MessageBox.Show("Esta Persona No Se Encuentra");
             }
 
-            //deshabilito el boton buscar
-            btnBuscar.Enabled = false;
+            //Muestro la cantidad de dias trabajados
+            lblDiasTrab.Text = Convert.ToString(cantidadDiasTrab());
 
-            //habilito el boton buscar nuevo
-            btnBuscarNew.Enabled = true;
+            marcarFecha();
+        }
+
+        private void CargarRegistro()
+        {
+            if (dgvBusqId.DataSource != null)
+                Limpiar();
+
+            registros = buscarId.RegistrosProcesados;
+            string busId = cBoxId.Text;
+
+            for (int i = 0; i < registros.Count; i++)
+            {
+                if (busId == registros[i].ID)
+                    registrosUnID.Add(registros[i]);
+            }
+
+            //si contiene elementos muestro en el DataGridview si no muestro un mensaje
+            if (registrosUnID.Any())
+            {
+                //cargo la lista nueva solo con los reg del id buscado
+                dgvBusqId.DataSource = null;
+                dgvBusqId.DataSource = registrosUnID;
+
+                //Variable para calcular total de horas de un trabajador
+                TimeSpan hrsTotales = new TimeSpan();
+
+                //recorro los registros de un id buscado y sumo la cantidad de horas
+                for (int i = 0; i < registrosUnID.Count; i++)
+                {
+                    hrsTotales += registrosUnID[i].Horas;
+                }
+
+                string horas = ((int)hrsTotales.TotalHours).ToString();
+                string minutos = hrsTotales.ToString("mm");
+                string segundos = hrsTotales.ToString("ss");
+
+                //Muestro los datos en los label`s
+                lblHrsTrab.Text = horas + ":" + minutos + ":" + segundos;
+                lblID.Text = cBoxId.Text;
+                lblNomApe.Text = registrosUnID[0].Nombre.ToString();
+
+            }
+            else
+            {
+                //Si no encuentra una persona por su id da un msj
+                MessageBox.Show("Esta Persona No Se Encuentra");
+            }
 
             //Muestro la cantidad de dias trabajados
             lblDiasTrab.Text = Convert.ToString(cantidadDiasTrab());
@@ -130,7 +163,7 @@ namespace ProyectoModernizacion
         public void cargarComboBox()
         {
             //guardo en result todos los id distintos
-            registros = buscarId.getRegistros();
+            registros = buscarId.RegistrosProcesados;
             List<Registro> listids = new List<Registro>();
 
             for (int i = 0; i < registros.Count; i++)
@@ -144,18 +177,8 @@ namespace ProyectoModernizacion
             cBoxId.DataSource = result.ToList();
         }
 
-
-        //Cuando se quiere buscar una nueva persona
-        private void btnBuscarNew_Click(object sender, EventArgs e)
+        private void Limpiar()
         {
-            
-
-            //limpio el combobox
-            cBoxId.Text = "";
-            //habilito el boton buscar
-            btnBuscar.Enabled = true;
-            //deshabilito el boton buscar nuevo
-            btnBuscarNew.Enabled = false;
             //limpio el DataGridView
             dgvBusqId.Columns.Clear();
             //limpio la lista 
@@ -166,7 +189,6 @@ namespace ProyectoModernizacion
             lblID.Text = "";
             lblHrsTrab.Text = "";
             lblFaltas.Text = "";
-
             //limpio el calendario
             calendario.BoldedDates = null;
         }
@@ -178,19 +200,17 @@ namespace ProyectoModernizacion
             //variables para filtrar registros
             DateTime desde = dtpDesde.Value;
             DateTime hasta = dtpHasta.Value;
-            
+            TimeSpan hrsTotales = new TimeSpan();
+
             dgvBusqId.DataSource = null;
             dgvBusqId.DataSource = registrosUnID.Where(w => w.Horario > desde && w.Horario < hasta).ToList();
 
-            TimeSpan hrsTotales = new TimeSpan();
-            
             foreach (DataGridViewRow row in dgvBusqId.Rows)
             {
-                //string codigo = Convert.ToString(row.Cells["Codigo"].Value);
                 hrsTotales += (TimeSpan)row.Cells["Horas"].Value;
             }
 
-            /////////////////PARA CALCULAR LAS INASISTENCIAS/////////////////
+            //PARA CALCULAR LAS INASISTENCIAS
             bool bandera = false;
             int inasistencias = 0;
             while (desde.Date <= hasta.Date)
@@ -226,8 +246,7 @@ namespace ProyectoModernizacion
             dgvBusqId.Columns.Clear();
         }
 
-        //se limpia el label donde se muestra la hora 
-        //cuando se cambia de fecha
+        //cuando se cambia de fecha se limpia el label donde se muestra la hora 
         private void dtpDesde_ValueChanged(object sender, EventArgs e)
         {
             lblHrsTrab.Text = "";
@@ -238,12 +257,10 @@ namespace ProyectoModernizacion
             cargarComboBox();
         }
 
-        private void cBoxId_TextChanged(object sender, EventArgs e)
+        private void cBoxId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBoxId.Text == "")
-                btnBuscar.Enabled = false;
-            else
-                btnBuscar.Enabled = true;
+            Limpiar();
+            CargarRegistro();
         }
     }//FIN CLASE
 }

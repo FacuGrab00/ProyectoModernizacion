@@ -13,20 +13,16 @@ namespace ProyectoModernizacion
         public FormRegistros()
         {
             InitializeComponent();
-            Procesar_Registros();
+            ProcesarRegistros();
         }
 
         ManejadorExcel manejadorExcel;
         List<Registro> registrosProcesados;
-        string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelProcesado.xlsx";
+        private readonly string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelProcesado.xlsx";
+        public string SavePath { get; set; }
+        public List<Registro> RegistrosProcesados { get => registrosProcesados; }
 
-        //RECIBIMOS LA INSTANCIA DE TABLA
-        public List<Registro> getRegistros()
-        {
-            return registrosProcesados;
-        }
-
-        public void Procesar_Registros()
+        public void ProcesarRegistros()
         {
             manejadorExcel = new ManejadorExcel();
             registrosProcesados = new List<Registro>();
@@ -87,6 +83,7 @@ namespace ProyectoModernizacion
                 }
             }
         }
+
         private bool CasoCorrecto(Registro regActual, Registro regSiguiente)
         {
             bool bandera = false;
@@ -137,7 +134,7 @@ namespace ProyectoModernizacion
         //VOLCAMOS LOS REGISTROS PROCESADOS AL DGV
         public void VolcarRegistros()
         {
-            Procesar_Registros();
+            ProcesarRegistros();
             dgvExcel.DataSource = registrosProcesados;
             manejadorExcel.ExportarExcel(mainPath, dgvExcel);
         }
@@ -145,6 +142,12 @@ namespace ProyectoModernizacion
         private void FormRegistros_Load(object sender, EventArgs e)
         {
             dgvExcel.DataSource = registrosProcesados;
+        }
+
+        public void Exportar()
+        {
+            manejadorExcel.ExportarExcel(SavePath, dgvExcel);
+            MessageBox.Show("Se guardó con exito!");
         }
 
     }//FIN CLASE

@@ -10,12 +10,12 @@ namespace ProyectoModernizacion
     class ManejadorExcel
     {
         //ATRIBUTOS
-        SLDocument excelPrincipal = null;   //INSTANCIA QUE MANEJA EL EXCEL PRINCIPAL.
-        string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelPrincipal.xlsx"; //DIRECCION DEL HISTORIAL DE TRABAJO.
-        int iColumn = 1;    //INDICE DE LA CANTIDAD DE COLUMNAS QUE MANEJA EL ARCHIVO EXCEL.
-        List<Registro> registros = new List<Registro>();    //LISTA DE REGISTROS PARA MANIPULAR.
-        List<String> columnas = new List<string>();     //LISTA DE COLUMNAS
-        bool loadedColumns = false; //BANDERA ME INDICA SI YA SE CARGARON LAS COLUMNAS
+        SLDocument excelPrincipal = null;                                                   //INSTANCIA QUE MANEJA EL EXCEL PRINCIPAL.
+        readonly string mainPath = AppDomain.CurrentDomain.BaseDirectory + "ExcelPrincipal.xlsx";    //DIRECCION DEL HISTORIAL DE TRABAJO.
+        int iColumn = 1;                                                                    //INDICE DE LA CANTIDAD DE COLUMNAS QUE MANEJA EL ARCHIVO EXCEL.
+        readonly List<Registro> registros = new List<Registro>();                                    //LISTA DE REGISTROS PARA MANIPULAR.
+        readonly List<String> columnas = new List<string>();                                         //LISTA DE COLUMNAS
+        bool loadedColumns = false;                                                         //BANDERA ME INDICA SI YA SE CARGARON LAS COLUMNAS
 
         public ManejadorExcel()
         {

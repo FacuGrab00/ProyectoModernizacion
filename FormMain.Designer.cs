@@ -29,33 +29,32 @@ namespace ProyectoModernizacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.BtnAbrir = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.BtnGuardar = new System.Windows.Forms.Button();
             this.topMenu = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.PictureBox();
             this.sideBar = new System.Windows.Forms.Panel();
-            this.subMenu2 = new System.Windows.Forms.Panel();
             this.BtnBuscador = new System.Windows.Forms.Button();
             this.subMenuProcesar = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.BtnProcesarArchivo = new System.Windows.Forms.Button();
             this.BtnProcesar = new System.Windows.Forms.Button();
             this.subMenuTabla = new System.Windows.Forms.Panel();
             this.BtnTabla = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
+            this.labelLogo = new System.Windows.Forms.Label();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.topMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.sideBar.SuspendLayout();
             this.subMenuProcesar.SuspendLayout();
             this.subMenuTabla.SuspendLayout();
+            this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -88,46 +87,35 @@ namespace ProyectoModernizacion
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.FileName = "ExcelPrincipal";
+            this.saveFileDialog1.FileName = "Registros";
             this.saveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx";
             this.saveFileDialog1.Title = "Guardar Archivo";
-            // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
-            this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnGuardar.FlatAppearance.BorderSize = 0;
-            this.BtnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(139)))));
-            this.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
-            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnGuardar.Image = global::ProyectoModernizacion.Properties.Resources.file_export_solid_24;
-            this.BtnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardar.Location = new System.Drawing.Point(0, 50);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.BtnGuardar.Size = new System.Drawing.Size(250, 50);
-            this.BtnGuardar.TabIndex = 2;
-            this.BtnGuardar.Text = "Guardar Archivo";
-            this.BtnGuardar.UseVisualStyleBackColor = false;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // topMenu
             // 
             this.topMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            this.topMenu.Controls.Add(this.label1);
             this.topMenu.Controls.Add(this.btnMaximizar);
             this.topMenu.Controls.Add(this.btnRestaurar);
             this.topMenu.Controls.Add(this.btnMinimizar);
             this.topMenu.Controls.Add(this.btnCerrar);
-            this.topMenu.Controls.Add(this.btnClose);
             this.topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.topMenu.Location = new System.Drawing.Point(0, 0);
             this.topMenu.Name = "topMenu";
             this.topMenu.Size = new System.Drawing.Size(1240, 40);
             this.topMenu.TabIndex = 3;
             this.topMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topMenu_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(25, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Excel Processor 1.0";
             // 
             // btnMaximizar
             // 
@@ -161,6 +149,7 @@ namespace ProyectoModernizacion
             this.btnRestaurar.Size = new System.Drawing.Size(34, 28);
             this.btnRestaurar.TabIndex = 7;
             this.btnRestaurar.UseVisualStyleBackColor = true;
+            this.btnRestaurar.Visible = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // btnMinimizar
@@ -197,20 +186,9 @@ namespace ProyectoModernizacion
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(0, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(83, 42);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
             // sideBar
             // 
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(55)))), ((int)(((byte)(84)))));
-            this.sideBar.Controls.Add(this.subMenu2);
             this.sideBar.Controls.Add(this.BtnBuscador);
             this.sideBar.Controls.Add(this.subMenuProcesar);
             this.sideBar.Controls.Add(this.BtnProcesar);
@@ -221,16 +199,6 @@ namespace ProyectoModernizacion
             this.sideBar.Name = "sideBar";
             this.sideBar.Size = new System.Drawing.Size(250, 680);
             this.sideBar.TabIndex = 4;
-            // 
-            // subMenu2
-            // 
-            this.subMenu2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
-            this.subMenu2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenu2.Location = new System.Drawing.Point(0, 350);
-            this.subMenu2.Name = "subMenu2";
-            this.subMenu2.Size = new System.Drawing.Size(250, 100);
-            this.subMenu2.TabIndex = 6;
-            this.subMenu2.Visible = false;
             // 
             // BtnBuscador
             // 
@@ -244,7 +212,7 @@ namespace ProyectoModernizacion
             this.BtnBuscador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnBuscador.Image = global::ProyectoModernizacion.Properties.Resources.search_alt_2_regular_24;
             this.BtnBuscador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBuscador.Location = new System.Drawing.Point(0, 300);
+            this.BtnBuscador.Location = new System.Drawing.Point(0, 250);
             this.BtnBuscador.Margin = new System.Windows.Forms.Padding(2);
             this.BtnBuscador.Name = "BtnBuscador";
             this.BtnBuscador.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
@@ -252,19 +220,42 @@ namespace ProyectoModernizacion
             this.BtnBuscador.TabIndex = 5;
             this.BtnBuscador.Text = "Buscar Personal";
             this.BtnBuscador.UseVisualStyleBackColor = false;
-            this.BtnBuscador.Click += new System.EventHandler(this.BtnBuscador_Click_1);
+            this.BtnBuscador.Click += new System.EventHandler(this.BtnBuscador_Click);
             // 
             // subMenuProcesar
             // 
             this.subMenuProcesar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
+            this.subMenuProcesar.Controls.Add(this.btnGuardar);
             this.subMenuProcesar.Controls.Add(this.BtnProcesarArchivo);
             this.subMenuProcesar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenuProcesar.Location = new System.Drawing.Point(0, 200);
+            this.subMenuProcesar.Location = new System.Drawing.Point(0, 150);
             this.subMenuProcesar.Margin = new System.Windows.Forms.Padding(2);
             this.subMenuProcesar.Name = "subMenuProcesar";
             this.subMenuProcesar.Size = new System.Drawing.Size(250, 100);
             this.subMenuProcesar.TabIndex = 0;
             this.subMenuProcesar.Visible = false;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(65)))), ((int)(((byte)(139)))));
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(113)))), ((int)(((byte)(227)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGuardar.Image = global::ProyectoModernizacion.Properties.Resources.file_export_solid_24;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(0, 50);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnGuardar.Size = new System.Drawing.Size(250, 50);
+            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // BtnProcesarArchivo
             // 
@@ -276,7 +267,7 @@ namespace ProyectoModernizacion
             this.BtnProcesarArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProcesarArchivo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnProcesarArchivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnProcesarArchivo.Image = global::ProyectoModernizacion.Properties.Resources.file_export_solid_24;
+            this.BtnProcesarArchivo.Image = global::ProyectoModernizacion.Properties.Resources.icons8_process_24;
             this.BtnProcesarArchivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnProcesarArchivo.Location = new System.Drawing.Point(0, 0);
             this.BtnProcesarArchivo.Margin = new System.Windows.Forms.Padding(2);
@@ -284,7 +275,7 @@ namespace ProyectoModernizacion
             this.BtnProcesarArchivo.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.BtnProcesarArchivo.Size = new System.Drawing.Size(250, 50);
             this.BtnProcesarArchivo.TabIndex = 3;
-            this.BtnProcesarArchivo.Text = "Procesar Archivo";
+            this.BtnProcesarArchivo.Text = "Procesar";
             this.BtnProcesarArchivo.UseVisualStyleBackColor = false;
             this.BtnProcesarArchivo.Click += new System.EventHandler(this.BtnProcesarArchivo_Click);
             // 
@@ -298,27 +289,26 @@ namespace ProyectoModernizacion
             this.BtnProcesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnProcesar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnProcesar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnProcesar.Image = global::ProyectoModernizacion.Properties.Resources.report_solid_24;
+            this.BtnProcesar.Image = global::ProyectoModernizacion.Properties.Resources.icons8_register_24;
             this.BtnProcesar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProcesar.Location = new System.Drawing.Point(0, 150);
+            this.BtnProcesar.Location = new System.Drawing.Point(0, 100);
             this.BtnProcesar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnProcesar.Name = "BtnProcesar";
             this.BtnProcesar.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.BtnProcesar.Size = new System.Drawing.Size(250, 50);
             this.BtnProcesar.TabIndex = 4;
-            this.BtnProcesar.Text = "Procesar";
+            this.BtnProcesar.Text = "Procesar Registros";
             this.BtnProcesar.UseVisualStyleBackColor = false;
             this.BtnProcesar.Click += new System.EventHandler(this.BtnProcesar_Click);
             // 
             // subMenuTabla
             // 
             this.subMenuTabla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(46)))), ((int)(((byte)(62)))));
-            this.subMenuTabla.Controls.Add(this.BtnGuardar);
             this.subMenuTabla.Controls.Add(this.BtnAbrir);
             this.subMenuTabla.Dock = System.Windows.Forms.DockStyle.Top;
             this.subMenuTabla.Location = new System.Drawing.Point(0, 50);
             this.subMenuTabla.Name = "subMenuTabla";
-            this.subMenuTabla.Size = new System.Drawing.Size(250, 100);
+            this.subMenuTabla.Size = new System.Drawing.Size(250, 50);
             this.subMenuTabla.TabIndex = 0;
             this.subMenuTabla.Visible = false;
             // 
@@ -332,7 +322,7 @@ namespace ProyectoModernizacion
             this.BtnTabla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnTabla.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnTabla.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnTabla.Image = global::ProyectoModernizacion.Properties.Resources.table_regular_24;
+            this.BtnTabla.Image = global::ProyectoModernizacion.Properties.Resources.icons8_excel_24__2_;
             this.BtnTabla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTabla.Location = new System.Drawing.Point(0, 0);
             this.BtnTabla.Margin = new System.Windows.Forms.Padding(2);
@@ -340,18 +330,43 @@ namespace ProyectoModernizacion
             this.BtnTabla.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.BtnTabla.Size = new System.Drawing.Size(250, 50);
             this.BtnTabla.TabIndex = 3;
-            this.BtnTabla.Text = "Importar/Exportar";
+            this.BtnTabla.Text = "Importar Excel";
             this.BtnTabla.UseVisualStyleBackColor = false;
             this.BtnTabla.Click += new System.EventHandler(this.BtnTabla_Click);
             // 
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
+            this.panelMain.Controls.Add(this.labelLogo);
+            this.panelMain.Controls.Add(this.logo);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(250, 40);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(990, 680);
             this.panelMain.TabIndex = 5;
+            // 
+            // labelLogo
+            // 
+            this.labelLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelLogo.AutoSize = true;
+            this.labelLogo.Font = new System.Drawing.Font("Century Gothic", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelLogo.ForeColor = System.Drawing.Color.White;
+            this.labelLogo.Location = new System.Drawing.Point(223, 583);
+            this.labelLogo.Name = "labelLogo";
+            this.labelLogo.Size = new System.Drawing.Size(582, 73);
+            this.labelLogo.TabIndex = 8;
+            this.labelLogo.Text = "Excel Processor 1.0";
+            // 
+            // logo
+            // 
+            this.logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.logo.Image = global::ProyectoModernizacion.Properties.Resources.icons8_microsoft_excel_500;
+            this.logo.Location = new System.Drawing.Point(260, 80);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(500, 500);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
             // 
             // FormMain
             // 
@@ -366,10 +381,13 @@ namespace ProyectoModernizacion
             this.Name = "FormMain";
             this.Text = "Sistema de Control de Personal";
             this.topMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            this.topMenu.PerformLayout();
             this.sideBar.ResumeLayout(false);
             this.subMenuProcesar.ResumeLayout(false);
             this.subMenuTabla.ResumeLayout(false);
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,19 +397,14 @@ namespace ProyectoModernizacion
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button BtnAbrir;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Panel topMenu;
         private System.Windows.Forms.Panel sideBar;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.PictureBox btnClose;
-        private System.Windows.Forms.Panel subMenu2;
         private System.Windows.Forms.Button BtnBuscador;
         private System.Windows.Forms.Panel subMenuProcesar;
         private System.Windows.Forms.Button BtnProcesar;
         private System.Windows.Forms.Panel subMenuTabla;
         private System.Windows.Forms.Button BtnTabla;
-        private System.Windows.Forms.Timer tmContraerMenu;
-        private System.Windows.Forms.Timer tmExpandirMenu;
 
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnMinimizar;
@@ -399,6 +412,10 @@ namespace ProyectoModernizacion
         private System.Windows.Forms.Button btnRestaurar;
 
         private System.Windows.Forms.Button BtnProcesarArchivo;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.Label labelLogo;
     }
 }
 
