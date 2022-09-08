@@ -111,14 +111,21 @@ namespace ProyectoModernizacion
 
                 //Variable para calcular total de horas de un trabajador
                 TimeSpan hrsTotales = new TimeSpan();
+
                 
+
                 //recorro los registros de un id buscado y sumo la cantidad de horas
                 for (int i = 0; i < registrosUnID.Count; i++)
                 {
                     hrsTotales += registrosUnID[i].Horas;
                 }
+
+                string horas = ((int)hrsTotales.TotalHours).ToString();
+                string minutos = hrsTotales.ToString("mm");
+                string segundos = hrsTotales.ToString("ss");
+
                 //Muestro los datos en los label`s
-                lblHrsTrab.Text = hrsTotales.ToString();
+                lblHrsTrab.Text = horas + ":" + minutos + ":" + segundos;
                 //lblID.Text = txtID.Text;
                 lblID.Text = cBoxId.Text;
                 lblNomApe.Text = registrosUnID[0].Nombre.ToString();
@@ -189,6 +196,8 @@ namespace ProyectoModernizacion
             lblID.Text = "";
             lblHrsTrab.Text = "";
 
+            lblFaltas.Text = "";
+
             //limpio el calendario
             calendario.BoldedDates = null;
             
@@ -231,7 +240,38 @@ namespace ProyectoModernizacion
             }
 
 
-           lblHrsTrab.Text = hrsTotales.ToString();
+            /////////////////PARA CALCULAR LAS INASISTENCIAS/////////////////
+            bool bandera = false;
+            int inasistencias = 0;
+            while (desde.Date <= hasta.Date)
+            {
+                foreach (Registro registro in registrosUnID)
+                {
+                    if (registro.Horario.Date == desde.Date)
+                    {
+                        bandera = false;
+                        break;
+                    }
+                    else
+                    {
+                        if (desde.DayOfWeek != DayOfWeek.Sunday && desde.DayOfWeek != DayOfWeek.Saturday)
+                        {
+                            bandera = true;
+                        }
+                    }
+                        
+                }
+                if (bandera)
+                {
+                    inasistencias++;
+                }
+                desde=desde.AddDays(1);
+               
+            }
+
+            lblFaltas.Text = inasistencias.ToString();
+
+            lblHrsTrab.Text = hrsTotales.ToString();
 
         }
 

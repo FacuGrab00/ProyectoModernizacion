@@ -240,13 +240,6 @@ namespace ProyectoModernizacion
 
         }
 
-
-        //Procedimiento para caragar comboBox
-        public void cargarComboBox()
-        {
-            
-        }
-
         private void FormRegistros_Load(object sender, EventArgs e)
         {
             dgvExcel.DataSource = registrosProcesados;
