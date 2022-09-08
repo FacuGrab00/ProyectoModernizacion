@@ -230,26 +230,6 @@ namespace ProyectoModernizacion
                 hrsTotales += (TimeSpan)row.Cells["Horas"].Value;
             }
 
-            bool bandera = false;
-            int inasistencias = 0;
-            while(desde.Day <= hasta.Day)
-            {
-                foreach (Registro registro in registrosUnID)
-                {
-                    if (registro.Horario.Day == desde.Day)
-                    {
-                        bandera = false;
-                        break;
-                    }
-                    else
-                        bandera = true;
-                }
-                if (bandera)
-                {
-                    inasistencias++;
-                }
-            }
-
 
            lblHrsTrab.Text = hrsTotales.ToString();
 
