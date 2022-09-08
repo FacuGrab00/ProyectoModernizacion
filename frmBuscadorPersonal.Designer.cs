@@ -295,7 +295,7 @@ namespace ProyectoModernizacion
             this.calendario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.calendario.Location = new System.Drawing.Point(600, 10);
+            this.calendario.Location = new System.Drawing.Point(658, 10);
             this.calendario.Margin = new System.Windows.Forms.Padding(7);
             this.calendario.Name = "calendario";
             this.calendario.TabIndex = 24;
