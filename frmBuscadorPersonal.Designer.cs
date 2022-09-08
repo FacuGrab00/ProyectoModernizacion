@@ -54,6 +54,7 @@ namespace ProyectoModernizacion
             this.lblNomApe = new System.Windows.Forms.Label();
             this.panelDatosPersonales = new System.Windows.Forms.Panel();
             this.cBoxId = new System.Windows.Forms.ComboBox();
+            this.lblFaltas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusqId)).BeginInit();
             this.panelDatosPersonales.SuspendLayout();
             this.SuspendLayout();
@@ -368,6 +369,7 @@ namespace ProyectoModernizacion
             // 
             this.panelDatosPersonales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDatosPersonales.Controls.Add(this.lblFaltas);
             this.panelDatosPersonales.Controls.Add(this.label1);
             this.panelDatosPersonales.Controls.Add(this.calendario);
             this.panelDatosPersonales.Controls.Add(this.lblID);
@@ -393,6 +395,17 @@ namespace ProyectoModernizacion
             this.cBoxId.TabIndex = 28;
             this.cBoxId.TextChanged += new System.EventHandler(this.cBoxId_TextChanged);
             this.cBoxId.Click += new System.EventHandler(this.cBoxId_Click);
+            // 
+            // lblFaltas
+            // 
+            this.lblFaltas.AutoSize = true;
+            this.lblFaltas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFaltas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblFaltas.Location = new System.Drawing.Point(12, 260);
+            this.lblFaltas.Name = "lblFaltas";
+            this.lblFaltas.Size = new System.Drawing.Size(93, 30);
+            this.lblFaltas.TabIndex = 29;
+            this.lblFaltas.Text = "FALTAS";
             // 
             // frmBuscadorPersonal
             // 
@@ -445,5 +458,6 @@ namespace ProyectoModernizacion
         private System.Windows.Forms.Label lblNomApe;
         private System.Windows.Forms.Panel panelDatosPersonales;
         public System.Windows.Forms.ComboBox cBoxId;
+        private System.Windows.Forms.Label lblFaltas;
     }
 }
